@@ -35,7 +35,7 @@ export default function SignUp() {
           .string()
           .required("Password is required.")
           .matches(
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>\/?])[A-Za-z\d!@#$%^&*()_+[\]{};':"\\|,.<>\/?]{8,}$/,
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>/?])[A-Za-z\d!@#$%^&*()_+[\]{};':"\\|,.<>/?]{8,}$/,
             "Password must be at least 8 characters long, include at least one uppercase letter, one lowercase letter, one digit, and one special character."
           ),
         rePassword: yup
