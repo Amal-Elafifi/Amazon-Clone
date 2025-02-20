@@ -15,6 +15,7 @@ import Loading from "../components/feedback/Loading";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import { Toaster } from "react-hot-toast";
+import ProtectedRoute from "../protectedRoute/ProtectedRoute";
 const AppRouter = () => {
   return (
     <Provider store={store}>
@@ -22,15 +23,15 @@ const AppRouter = () => {
       <BrowserRouter>
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="/" index element={<Home />} />
+            <Route path="/" index element={<ProtectedRoute><Home /></ProtectedRoute>}  />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/category/:id" element={<Category />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/product/:id" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
+            <Route path="/category/:id" element={<ProtectedRoute><Category /></ProtectedRoute>} />
+            <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
+            <Route path="/product/:id" element={<ProtectedRoute><Product /></ProtectedRoute>} />
+            <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+            <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
           </Routes>
         </Suspense>
       </BrowserRouter>
