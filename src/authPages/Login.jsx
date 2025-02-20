@@ -1,9 +1,10 @@
-import { Formik, useFormik } from "formik";
+import {  useFormik } from "formik";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import * as yup from "yup";
-import { logIn, signUp } from "../slices/user.slice";
+import { logIn } from "../slices/user.slice";
 import { CircleAlert, Eye, EyeOff, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [isEyeVisible, setIsEyeVisible] = useState(false); // state for visibility
@@ -194,12 +195,12 @@ export default function Login() {
         <p className=" font-normal text-base text-[#717171] relative text-center my-5 before:w-[150px] before:block before:absolute before:align-middle before:ml-3 before:left-full before:top-1/2  before:h-[1px] before:bg-[#D9D9D9] before:content-[''] after:w-[150px] after:block after:absolute after:align-middle after:mr-3 after:right-full after:top-1/2  after:h-[1px] after:bg-[#D9D9D9] after:content-['']">
           New to Amazon?
         </p>
-        <a
-          href=""
+        <Link
+          to="/signup"
           className="border rounded-[10px] px-[11px] py-[7px] w-[448.69px] text-center text-lg font-normal"
         >
           Create your Amazon account
-        </a>
+        </Link>
         <div className="mt-10 w-full space-y-5">
           <svg
             width="100%"

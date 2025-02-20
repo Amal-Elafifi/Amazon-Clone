@@ -13,6 +13,9 @@ export const signUp = createAsyncThunk("user/signUp",async(values)=>{
         const { data } = await axios.request(options);
         if(data.message ==="success"){
          toast.success("Signed up successfully")
+         setTimeout(()=>{
+             window.location.href= '/login'
+         },1500)
         }
         return data;
     }
@@ -31,6 +34,9 @@ export const logIn = createAsyncThunk("user/logIn",async(values)=>{
         const { data } = await axios.request(options);
         if(data.message ==="success"){
          toast.success("Welcome back")
+         setTimeout(()=>{
+            window.location.href= '/'
+        },1500)
         }
         return data;
     }
@@ -38,11 +44,6 @@ export const logIn = createAsyncThunk("user/logIn",async(values)=>{
         toast.dismiss(toastId)
     }
 })
-
-
-
-
-
 const user = createSlice({
   name: "user",
   initialState: {
@@ -52,7 +53,6 @@ const user = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase( signUp.fulfilled, (state, action) => {
-
     }),
     builder.addCase( logIn.fulfilled, (state, action) => {
         state.token=action.payload.token

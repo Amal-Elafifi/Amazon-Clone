@@ -1,11 +1,13 @@
-import { Formik, useFormik } from "formik";
+import {  useFormik } from "formik";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 import { signUp } from "../slices/user.slice";
 import { CircleAlert, Eye, EyeOff, Play } from "lucide-react";
+import {Link} from "react-router-dom";
 
 export default function SignUp() {
+    const message = useSelector((store)=>{ store.userReducer.message})
     const [isEyeVisible, setIsEyeVisible] = useState(false); // State to track visibility
     const toggleIcon = () => {
       setIsEyeVisible(!isEyeVisible); // Toggle the state
@@ -49,7 +51,9 @@ export default function SignUp() {
           password: "",
           rePassword: "",
           },
-          onSubmit:(values)=>{dispatch(signUp(values))} ,
+          onSubmit:(values)=>{
+            dispatch(signUp(values)) 
+          } ,
           validationSchema: validationSchema,
           });
   return (
@@ -256,7 +260,7 @@ export default function SignUp() {
               fill="#D9D9D9"
             />
           </svg>
-            <p className="font-inika text-lg">Already have an account? <a href='login' className="text-[#2A8FD7] font-inika ">Sign in <Play size={10} className="inline-block" fill="#2A8FD7"/></a></p>
+            <p className="font-inika text-lg">Already have an account? <Link to='/login' className="text-[#2A8FD7] font-inika ">Log in <Play size={10} className="inline-block" fill="#2A8FD7"/></Link></p>
             <p>By creating an account or logging in , you agree to Amazon’s <br />
             <a href="" className="text-[#2A8FD7] font-inika border-b border-[#2A8FD7]">Conditions of Use</a> and <a href="" className="text-[#2A8FD7] border-b border-[#2A8FD7]">Privacy Notice.</a>
             </p>
