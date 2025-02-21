@@ -12,7 +12,19 @@ export default {
       },
       backgroundColor: {
         headerColor : 'rgba(19, 25, 33, 1)',
+        searchCategory: 'rgba(217, 217, 217, 1)',
+        searchbtn: "rgba(255, 204, 0, 1)",
+     
       },
+      colors: {
+        lightfont: "rgba(192, 204, 204, 1)",
+
+        searchCategoryColor: "rgba(103, 103, 103, 1)",
+        searchicon: ' rgba(33, 33, 33, 1)',
+      },
+      // padding: {
+
+      // }
     },
   },
   plugins: [],
