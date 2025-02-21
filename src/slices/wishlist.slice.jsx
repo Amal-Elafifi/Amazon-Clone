@@ -13,7 +13,7 @@ export const getWishlist = createAsyncThunk("wishlist/getWishlist",async(_,{getS
     }
     try {
         let {data} = await axios.request(options)
-        return data.data;
+        return data;
     } catch (error) {
     }
 })
@@ -35,7 +35,6 @@ export const addProductToWishlist = createAsyncThunk("wishlist/addProductToWishl
         if(data.status == "success")
             {
                 toast.success(data.message)
-                getWishlist()
             }
         return data;
     } catch (error) {
@@ -56,10 +55,11 @@ export const removeProductFromWishlist = createAsyncThunk("wishlist/removeProduc
     }
     try {
         let {data} = await axios.request(options)
+        console.log(data);
+        
         if(data.status == "success")
             {
                 toast.success(data.message)
-                getWishlist()
             }
         return data;
     } catch (error) {
