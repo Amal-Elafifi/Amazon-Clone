@@ -23,7 +23,7 @@ const AppRouter = () => {
     <Provider store={store}>
       <Toaster />
       <BrowserRouter>
-      <Header/>
+      {/* <Header/> */}
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" index element={<ProtectedRoute><Home /></ProtectedRoute>}  />

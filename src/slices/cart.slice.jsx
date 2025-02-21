@@ -140,12 +140,9 @@ const cart = createSlice({
             state.cartInfo = action.payload;
         })
         builder.addCase(deleteAllCart.fulfilled,(state,action)=>{
-            state.isLoading = false
             state.cartInfo = null
         })
-        builder.addCase(deleteAllCart.pending,(state,action)=>{
-            state.isLoading = true
-        })
+
         builder.addCase(updateProductCount.fulfilled,(state,action)=>{      
             state.cartInfo = action.payload
         })
