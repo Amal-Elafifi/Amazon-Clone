@@ -162,5 +162,4 @@ const cart = createSlice({
         })
     },
 })
-
 export const cartReducer = cart.reducer
