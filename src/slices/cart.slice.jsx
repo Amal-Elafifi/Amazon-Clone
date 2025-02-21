@@ -13,7 +13,7 @@ export const getCartProducts = createAsyncThunk("cart/getCartProducts",async(_,{
     }
     try {
         const {data} = await axios.request(options)
-        return data.data
+        return data
     }
     finally{
     }
@@ -63,12 +63,10 @@ export const deleteCartProduct = createAsyncThunk("cart/deleteCartProduct",async
         const {data} = await axios.request(options)
         if(data.status === "success")
             {
-                //hna hn3ml call le el cart tany 34an el update
-                getCartProducts()
                 toast.dismiss(toastId)
                 toast.success("Deleted Successfully")
             }
-            return data.data
+            return data
     }
     finally{
         toast.dismiss(toastId)
@@ -85,13 +83,9 @@ export const deleteAllCart = createAsyncThunk("cart/deleteAllCart",async(_,{getS
         }
     }
     try {
-        const {data} = await axios.request(options)
-        console.log(data);
-        
+        const {data} = await axios.request(options)        
         if(data.message === "success")
             {
-                //hna hn3ml call le el cart tany 34an el update
-                getCartProducts()
                 toast.dismiss(toastId)
                 toast.success("Deleted Successfully")
             }
@@ -118,11 +112,10 @@ export const updateProductCount = createAsyncThunk("cart/updateProductCount",asy
         const {data} = await axios.request(options)
         if(data.status === "success")
             {
-                //hna hn3ml call le el cart tany 34an el update
                 toast.dismiss(toastId)
                 toast.success("Updated Successfully")
             }
-            return data.data
+            return data
     }
     finally{
         toast.dismiss(toastId)
@@ -143,12 +136,8 @@ const cart = createSlice({
         builder.addCase(getCartProducts.pending,(state,action)=>{  
             state.isLoading= true;
         }),
-        builder.addCase(deleteCartProduct.pending,(state,action)=>{            
+        builder.addCase(deleteCartProduct.fulfilled,(state,action)=>{            
             state.cartInfo = action.payload;
-            state.isLoading= false;
-        })
-        builder.addCase(deleteCartProduct.fulfilled,(state,action)=>{
-            state.isLoading= true;
         })
         builder.addCase(deleteAllCart.fulfilled,(state,action)=>{
             state.isLoading = false
