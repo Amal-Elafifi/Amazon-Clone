@@ -7,7 +7,6 @@ import { CircleAlert, Eye, EyeOff, Play } from "lucide-react";
 import {Link} from "react-router-dom";
 
 export default function SignUp() {
-    const message = useSelector((store)=>{ store.userReducer.message})
     const [isEyeVisible, setIsEyeVisible] = useState(false); // State to track visibility
     const toggleIcon = () => {
       setIsEyeVisible(!isEyeVisible); // Toggle the state
