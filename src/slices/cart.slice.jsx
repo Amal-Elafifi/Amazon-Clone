@@ -160,7 +160,6 @@ const cart = createSlice({
         builder.addCase(updateProductCount.fulfilled,(state,action)=>{      
             state.cartInfo = action.payload
         })
-
     },
 })
 
