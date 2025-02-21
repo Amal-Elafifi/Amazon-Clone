@@ -8,6 +8,10 @@ export default {
         serif: ['Alegreya Sans', 'ui-serif', 'Georgia'],
         mono: ['IBM Plex Sans Condensed', 'ui-monospace', 'SFMono-Regular'],
         inika: ["Inika", 'serif'], // Add el custom hna
+        Lato: ["Lato", "sans-serif"],
+      },
+      backgroundColor: {
+        headerColor : 'rgba(19, 25, 33, 1)',
       },
     },
   },

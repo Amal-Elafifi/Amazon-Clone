@@ -1,5 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import  Header from "../components/layout/header";
+import Location from "../pages/location";
 const Home = lazy(() => import("../pages/Home"));
 const Cart = lazy(() => import("../pages/Cart"));
 const Categories = lazy(() => import("../pages/Categories"));
@@ -21,6 +23,7 @@ const AppRouter = () => {
     <Provider store={store}>
       <Toaster />
       <BrowserRouter>
+      <Header/>
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" index element={<ProtectedRoute><Home /></ProtectedRoute>}  />
@@ -32,6 +35,7 @@ const AppRouter = () => {
             <Route path="/product/:id" element={<ProtectedRoute><Product /></ProtectedRoute>} />
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
             <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
+            <Route path="/location" element={<ProtectedRoute><Location /></ProtectedRoute>} />
           </Routes>
         </Suspense>
       </BrowserRouter>

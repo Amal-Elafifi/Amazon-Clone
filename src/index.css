@@ -10,5 +10,6 @@
       @apply flex flex-col gap-3
 }
 body{
-    font-family: "IBM Plex Sans Condensed", serif
+    font-family: "IBM Plex Sans Condensed", serif;
+    
 }
