@@ -48,6 +48,7 @@ export const handleCashOrder = createAsyncThunk("orders/handleCashOrder",async({
 
 })
 export const handleOnlinePayment = createAsyncThunk("orders/handleCashOrder",async({cartId,values},{getState})=>{
+    toastId=toast.loading("Redirecting...")
     const token = getState().userReducer.token;
     const options = {
         url:`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=${location.origin}`,
@@ -63,14 +64,12 @@ export const handleOnlinePayment = createAsyncThunk("orders/handleCashOrder",asy
         const {data} = await axios.request(options)
         if(data.status === "success")
             {
-                toastId=toast.loading("Redirecting...")
                 setTimeout(()=>{
                     window.location.href = data.session.url;
-                },1000)
+                },2000)
             }
     } catch (error) {
-        console.log(error); 
-        toast.error("check console and orders slice")
+        toast.error("Something went wrong while redirecting")
     }finally{
         toast.dismiss(toastId)
     }

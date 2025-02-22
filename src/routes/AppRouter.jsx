@@ -18,6 +18,8 @@ import { Provider } from "react-redux";
 import { store } from "../store/store";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "../protectedRoute/ProtectedRoute";
+import Checkout from "../pages/Checkout";
+import Orders from "../pages/Orders";
 const AppRouter = () => {
   return (
     <Provider store={store}>
@@ -35,6 +37,8 @@ const AppRouter = () => {
             <Route path="/product/:id" element={<ProtectedRoute><Product /></ProtectedRoute>} />
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
             <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
+            <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+            <Route path="/allorders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
             <Route path="/location" element={<ProtectedRoute><Location /></ProtectedRoute>} />
           </Routes>
         </Suspense>
