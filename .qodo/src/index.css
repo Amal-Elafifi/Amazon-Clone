@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.category-page aside h3 {
+      @apply font-semibold text-sm
+}
+.category-page aside section > div {
+      @apply flex flex-col gap-3
+}
+body{
+    font-family: "IBM Plex Sans Condensed", serif
+}

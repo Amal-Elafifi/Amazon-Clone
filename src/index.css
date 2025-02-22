@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap');
 
 .category-page aside h3 {
       @apply font-semibold text-sm
@@ -12,3 +12,22 @@
 body{
     font-family: "IBM Plex Sans Condensed", serif
 }
+
+/* Customize scrollbar for supported browsers */
+::-webkit-scrollbar {
+      width: 4px; /* Scrollbar width */
+    }
+    
+    /* Scrollbar track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f100; /* Background color */
+      border-radius: 10px; /* Rounded edges */
+    }
+    
+    /* Scrollbar thumb */
+    ::-webkit-scrollbar-thumb {
+      background: #2836474a; /* Scrollbar color */
+      border-radius: 10px;
+    }
+    
+    
