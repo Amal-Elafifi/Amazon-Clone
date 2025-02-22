@@ -13,3 +13,5 @@ function RatingStars ({number})
     }
 
 export default RatingStars;
+
+//jj
