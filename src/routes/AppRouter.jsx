@@ -1,5 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import  Header from "../components/layout/header";
+import Location from "../pages/location";
 const Home = lazy(() => import("../pages/Home"));
 const Cart = lazy(() => import("../pages/Cart"));
 const Categories = lazy(() => import("../pages/Categories"));
@@ -21,9 +23,10 @@ const AppRouter = () => {
     <Provider store={store}>
       <Toaster />
       <BrowserRouter>
+      {/* <Header/> */}
         <Suspense fallback={<Loading />}>
           <Routes>
-            {/* <Route path="/" index element={<ProtectedRoute><Home /></ProtectedRoute>}  />
+            <Route path="/" index element={<ProtectedRoute><Home /></ProtectedRoute>}  />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
             <Route path="/categories" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
@@ -31,16 +34,8 @@ const AppRouter = () => {
             <Route path="/products" element={<ProtectedRoute><Products /></ProtectedRoute>} />
             <Route path="/product/:id" element={<ProtectedRoute><Product /></ProtectedRoute>} />
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
-            <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} /> */}
-            <Route path="/" index element={<Home />}  />
-            <Route path="/signUp" element={<SignUp />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/categories" element={<Categories />} />
-            <Route path="/category/:id" element={<Category />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/product/:id" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
+            <Route path="/location" element={<ProtectedRoute><Location /></ProtectedRoute>} />
           </Routes>
         </Suspense>
       </BrowserRouter>
@@ -48,3 +43,4 @@ const AppRouter = () => {
   );
 };
 export default AppRouter;
+
