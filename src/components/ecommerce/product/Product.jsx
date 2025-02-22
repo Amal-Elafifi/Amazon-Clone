@@ -88,6 +88,7 @@ function Product () {
                 </div>
                 {/* باقي ال review cards و الresponsiveness بتاعة النص اللي تحت */}
                 {/* و ال rountaing */}
+                {/* وربط الكارت و ال fav */}
             </div>
         </>
     )

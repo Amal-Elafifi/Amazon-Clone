@@ -44,3 +44,13 @@ const AppRouter = () => {
 };
 export default AppRouter;
 
+{/* <Route path="/" index element={<Home />}  />
+<Route path="/signUp" element={<SignUp />} />
+<Route path="/login" element={<Login />} />
+<Route path="/categories" element={<Categories />} />
+<Route path="/category/:id" element={<Category />} />
+<Route path="/products" element={<Products />} />
+<Route path="/product/:id" element={<Product />} />
+<Route path="/cart" element={<Cart />} />
+<Route path="/wishlist" element={<Wishlist />} /> */}
+
