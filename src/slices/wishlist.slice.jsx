@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
 let toastId
+// actions
 export const getWishlist = createAsyncThunk("wishlist/getWishlist",async(_,{getState})=>{
     const token = getState().userReducer.token;
     const options = {
@@ -68,6 +69,10 @@ export const removeProductFromWishlist = createAsyncThunk("wishlist/removeProduc
         toast.dismiss(toastId)
     }
 })
+// actions
+
+
+//slice
 const wishlist = createSlice({
     name:"wishlist",
     initialState:{
@@ -87,3 +92,4 @@ const wishlist = createSlice({
 })
 
 export const wishlistReducer = wishlist.reducer
+//slice

@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
 let toastId;
+// actions
 export const getCartProducts = createAsyncThunk("cart/getCartProducts",async(_,{getState})=>{
     const token = getState().userReducer.token;
     const options = {
@@ -121,6 +122,9 @@ export const updateProductCount = createAsyncThunk("cart/updateProductCount",asy
         toast.dismiss(toastId)
     }
 })
+// actions
+
+//slice
 const cart = createSlice({
     name: "cart",
     initialState: {
@@ -149,3 +153,4 @@ const cart = createSlice({
     },
 })
 export const cartReducer = cart.reducer
+//slice

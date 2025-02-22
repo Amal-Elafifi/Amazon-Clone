@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import toast from "react-hot-toast";
 let toastId;
+// actions
 export const signUp = createAsyncThunk("user/signUp", async (values) => {
   const options = {
     url: `https://ecommerce.routemisr.com/api/v1/auth/signup`,
@@ -47,6 +48,9 @@ export const logIn = createAsyncThunk("user/logIn", async (values) => {
     toast.dismiss(toastId);
   }
 });
+// actions
+
+//slice
 const user = createSlice({
   name: "user",
   initialState: {
@@ -62,3 +66,4 @@ const user = createSlice({
   },
 });
 export const userReducer = user.reducer;
+//slice

@@ -3,6 +3,7 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import toast from "react-hot-toast";
 let toastId;
+// actions
 export const getUserOrders = createAsyncThunk("orders/getUserOrders",async(_,{getState})=>{
     const token = getState().userReducer.token;
     const {id} = jwtDecode(token)
@@ -75,6 +76,9 @@ export const handleOnlinePayment = createAsyncThunk("orders/handleCashOrder",asy
     }
 
 })
+// actions
+
+//slice
 const orders = createSlice({
     name: "orders",
     initialState: {
@@ -93,3 +97,4 @@ const orders = createSlice({
     }
 })
 export const ordersReducer = orders.reducer
+//slice
