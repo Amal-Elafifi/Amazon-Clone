@@ -19,6 +19,8 @@ import { Provider } from "react-redux";
 import { store } from "../store/store";
 import { Toaster } from "react-hot-toast";
 import ProtectedRoute from "../protectedRoute/ProtectedRoute";
+import Checkout from "../pages/Checkout";
+import Orders from "../pages/Orders";
 const AppRouter = () => {
   return (
     <Provider store={store}>
@@ -37,6 +39,8 @@ const AppRouter = () => {
             <Route path="/product/:id" element={<ProtectedRoute><Product /></ProtectedRoute>} />
             <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
             <Route path="/wishlist" element={<ProtectedRoute><Wishlist /></ProtectedRoute>} />
+            <Route path="/checkout" element={<ProtectedRoute><Checkout /></ProtectedRoute>} />
+            <Route path="/allorders" element={<ProtectedRoute><Orders /></ProtectedRoute>} />
             <Route path="/location" element={<ProtectedRoute><Location /></ProtectedRoute>} />
           </Routes>
         </Suspense>
@@ -46,3 +50,14 @@ const AppRouter = () => {
   );
 };
 export default AppRouter;
+
+{/* <Route path="/" index element={<Home />}  />
+<Route path="/signUp" element={<SignUp />} />
+<Route path="/login" element={<Login />} />
+<Route path="/categories" element={<Categories />} />
+<Route path="/category/:id" element={<Category />} />
+<Route path="/products" element={<Products />} />
+<Route path="/product/:id" element={<Product />} />
+<Route path="/cart" element={<Cart />} />
+<Route path="/wishlist" element={<Wishlist />} /> */}
+

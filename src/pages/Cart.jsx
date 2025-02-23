@@ -44,7 +44,7 @@ export default function Cart() {
         <div className='mt-4 '>
           {cartInfo?.data?.products?.map((product)=><CartItemCard key={product._id} productInfo={product}/>)}
         </div>
-        <Link to="/" className='bg-[red] mt-5 w-fit mx-auto text-white font-bold px-4 py-3 rounded-lg hover:text-white border border-[red] active:scale-90 flex justify-center items-center'><span className='mr-2'>Checkout</span><ShoppingBag/></Link>
+        <Link to="/checkout" className='bg-[red] mt-5 w-fit mx-auto text-white font-bold px-4 py-3 rounded-lg hover:text-white border border-[red] active:scale-90 flex justify-center items-center'><span className='mr-2'>Checkout</span><ShoppingBag/></Link>
         </>}
         </section>
     </>
