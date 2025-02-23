@@ -17,17 +17,17 @@ const Orders = lazy(()=> import("../pages/Orders"))
 const LayoutUser = lazy(()=> import("../layouts/LayoutUser"))
 const ProtectedRoute = lazy(()=> import("../protectedRoute/ProtectedRoute"))
 const Loading = lazy(()=> import("../components/feedback/Loading"))
+const VerifyResetCode = lazy(()=> import("../authPages/verifyResetCode"))
+const ForgotPassword = lazy(()=> import("../authPages/ForgotPassword"))
+const ResetPassword = lazy(()=> import("../authPages/ResetPassword"))
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import { Toaster } from "react-hot-toast";
-import ResetPassword from "../authPages/ResetPassword";
 const AppRouter = () => {
   return (
     <Provider store={store}>
       <Toaster />
       <BrowserRouter>
-      {/* Comment it after finishing your work */}
-      {/* <Header/>              */}
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<ProtectedRoute><LayoutUser/></ProtectedRoute>} >
@@ -44,10 +44,11 @@ const AppRouter = () => {
             </Route>
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/verifyResetCode" element={<VerifyResetCode />} />
             <Route path="/resetPassword" element={<ResetPassword />} />
           </Routes>
         </Suspense>
-        {/* <Footer/> */}
       </BrowserRouter>
     </Provider>
   );

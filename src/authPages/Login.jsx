@@ -172,7 +172,7 @@ export default function Login() {
           </p>
           <details href="" className="  items-center font-inika ">
             <summary className="text-[#2A8FD7]">Need help?</summary>
-            <p className="">Forgot your password? Let’s get you a <Link to="/resetPassword" className="text-[#2A8FD7]">new one</Link>.</p>
+            <p className="">Forgot your password? Let’s get you a <Link to="/forgotPassword" className="text-[#2A8FD7]">new one</Link>.</p>
           </details>
           <svg
             width="372.672"

@@ -48,6 +48,72 @@ export const logIn = createAsyncThunk("user/logIn", async (values) => {
     toast.dismiss(toastId);
   }
 });
+export const forgetPassword = createAsyncThunk("user/forgetPassword",async(values)=>{
+  toastId = toast.loading("Waiting...");
+  const options = {
+    url: `https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords`,
+    method: "POST",
+    data: values,
+  };
+  try {
+  let {data} = await axios.request(options);
+  toast.success(data.message)
+  if(data.statusMsg== "success"){
+    setTimeout(()=>{
+      window.location.href = "/verifyResetCode"
+    },1000)
+  }
+ } catch (error) {
+  toast.error(error.response.data.message)
+ }
+ finally{
+  toast.dismiss(toastId)
+ }
+})
+export const verifyResetCode = createAsyncThunk("user/verifyResetCode",async(values)=>{
+  toastId = toast.loading("Waiting...");
+  const options = {
+    url: `https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode`,
+    method: "POST",
+    data: values,
+  };
+  try {
+  let {data} = await axios.request(options);
+  if(data.status=== "Success"){
+    toast.success("Verified, Please enter new password");
+    setTimeout(()=>{
+      window.location.href = "/resetPassword"
+    },1000)
+  }
+ } catch (error) {
+  toast.error(error.response.data.message)
+ }
+ finally{
+  toast.dismiss(toastId)
+ }
+})
+export const resetPassword = createAsyncThunk("user/resetPassword",async(values)=>{
+  toastId = toast.loading("Resetting...");
+  const options = {
+    url: `https://ecommerce.routemisr.com/api/v1/auth/resetPassword`,
+    method: "PUT",
+    data: values,
+  };
+  try {
+  let {data} = await axios.request(options);
+  if(data.token){
+    toast.success("Password reset successfully");
+    setTimeout(()=>{
+      window.location.href = "/login"
+    },1000)
+  }
+ } catch (error) {
+  toast.error("Error resetting password")
+ }
+ finally{
+  toast.dismiss(toastId)
+ }
+})
 // actions
 
 //slice
