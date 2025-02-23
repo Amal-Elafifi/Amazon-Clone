@@ -2,7 +2,7 @@ import Button from "./button"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { addProductToWishlist } from "../slices/wishlist.slice"
+import { addProductToWishlist, removeProductFromWishlist } from "../slices/wishlist.slice"
 
 
 const Card = ({ description, image, sold, price, ratingNum, id }) => {
@@ -41,7 +41,13 @@ const Card = ({ description, image, sold, price, ratingNum, id }) => {
               <Button productId={id} /> <i className={` ${heart?'fa-solid':'fa-regular'} fa-heart fa-xl cursor-pointer text-red-700`} 
               onClick={()=>{
                 changeHeart()
-                dispatch(addProductToWishlist(id))
+                if(heart){
+                    dispatch(removeProductFromWishlist(id))
+                }
+                else{
+
+                    dispatch(addProductToWishlist(id))
+                }
               }}></i>
               </div>
               

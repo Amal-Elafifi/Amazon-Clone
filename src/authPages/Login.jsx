@@ -170,9 +170,10 @@ export default function Login() {
               Privacy Notice.
             </a>
           </p>
-          <a href="" className="text-[#2A8FD7] flex items-center font-inika ">
-           <Play size={13} fill="#656565" className="text-[#656565] mr-1"/> Need help?
-          </a>
+          <details href="" className="  items-center font-inika ">
+            <summary className="text-[#2A8FD7]">Need help?</summary>
+            <p className="">Forgot your password? Let’s get you a <Link to="/resetPassword" className="text-[#2A8FD7]">new one</Link>.</p>
+          </details>
           <svg
             width="372.672"
             height={2}

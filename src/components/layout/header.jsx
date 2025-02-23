@@ -5,7 +5,15 @@ import cartIcon from "../../assets/images/cartIcon.png";
 import { MapPin ,Search } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getCartProducts } from "../../slices/cart.slice";
 const Header =() => {
+  const dispatch = useDispatch();
+  const cartInfo = useSelector(store=>store.cartReducer.cartInfo)
+  useEffect(()=>{
+    dispatch(getCartProducts())
+  },[])
     return(
   <header className="flex items-center gap-[0.625rem]  px-[1.563rem] py-[0.649rem] bg-headerColor text-white font-Lato text-[1.13rem]">
 
@@ -55,11 +63,12 @@ const Header =() => {
       </div>
     
     </div>
-    <Link to=" " className="px-[1.219rem] w-[7.063rem]">Returns & Orders</Link>
+    <Link to="/allorders" className="px-[1.219rem] w-[7.063rem]">Returns & Orders</Link>
   
-    <Link to="/cart" className="flex items-end gap-x-[0.353rem] px-[0.625rem] font-bold">
+    <Link to="/cart" className="flex items-end gap-x-[0.353rem] relative px-[0.625rem] font-bold">
+        <span className={`absolute  bottom-5 ${cartInfo?'left-8':'left-7'}`}>{cartInfo?cartInfo.numOfCartItems:<i className="fa-solid fa-spinner fa-spin"></i>}</span>
         <img src={cartIcon} alt="icon" className="w-[3.039rem]" />
-        <a >Cart</a>
+        <span>Cart</span>
     </Link>
   </header>
     );

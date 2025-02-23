@@ -37,8 +37,6 @@ export const addProductToCart = createAsyncThunk("cart/addProductToCart",async(p
         console.log(data);
         if(data.status === "success")
             {
-                //hna hn3ml call le el cart tany 34an el update
-                getCartProducts()
                 toast.success(data.message)
             }
             return data
@@ -139,6 +137,9 @@ const cart = createSlice({
         }),
         builder.addCase(getCartProducts.pending,(state,action)=>{  
             state.isLoading= true;
+        }),
+        builder.addCase(addProductToCart.fulfilled,(state,action)=>{  
+            state.cartInfo = action.payload;
         }),
         builder.addCase(deleteCartProduct.fulfilled,(state,action)=>{            
             state.cartInfo = action.payload;
