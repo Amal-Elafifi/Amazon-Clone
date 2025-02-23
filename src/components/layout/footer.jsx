@@ -10,14 +10,14 @@ const Footer = ()=> {
         window.scrollTo({ top: 0, behavior: "smooth" });
       };
     return(
-        <div className="font-gujarati ">
-            <div className="bg-upFooter text-white  text-center  py-[1.781rem] hover:cursor-pointer" onClick={scrollToTop}>Back to Top</div>
+        <div className="">
+            <div className="font-gujarati  bg-upFooter text-white  text-center  py-[1.781rem] hover:cursor-pointer" onClick={scrollToTop}>Back to Top</div>
 
-            <footer className="bg-footerbg text-white">
-                <section className="  text-[1.049rem] font-light flex items-start gap-x-[7.688rem] px-[10.388rem] pt-[3.161rem] pb-[3.934rem] border-b border-borderBottom">
+            <footer className="bg-footerbg text-white font-gujarati ">
+                <section className="  text-[1.049rem] font-light flex items-start gap-x-[7.688rem] px-[10.388rem] pt-[3.161rem] pb-[3.934rem] border-b border-borderBottom hover:cursor-pointer ">
                 
-                    <table className="col1 font-[inherit] w-[8.393rem] text-left">
-                            <tr className="font-semibold text-[1.154rem]">Get to know Us</tr>
+                    <table className="col1 w-[8.393rem] text-left">
+                            <thead className="font-semibold text-[1.154rem]">Get to know Us</thead>
                             <tr>About Us</tr>
                             <tr>Careers</tr>
                             <tr>Press Releases</tr>
@@ -26,14 +26,14 @@ const Footer = ()=> {
 
               
                     <table className="col2 w-[8.393rem]">
-                            <tr className="font-semibold text-[1.154rem]">Connect with Us</tr>
+                            <thead className="font-semibold text-[1.154rem]">Connect with Us</thead>
                             <tr>Facebook</tr>
                             <tr>Twitter</tr>
                             <tr>Instagram</tr>
                     </table>
 
                     <table className="col3 w-[14.688rem]">
-                            <tr className="font-semibold text-[1.154rem]">Make Money with Us</tr>
+                            <thead className="font-semibold text-[1.154rem]">Make Money with Us</thead>
                             <tr>Sell on Amazon</tr>
                             <tr>Sell under Amazon Accelerator</tr>
                             <tr>Protect and Build Your Brand</tr>
@@ -46,7 +46,7 @@ const Footer = ()=> {
                     </table>
 
                     <table className="col4">
-                            <tr className="font-semibold text-[1.154rem]">Let Us Help You</tr>
+                            <thead className="font-semibold text-[1.154rem]">Let Us Help You</thead>
                             <tr>Your Account</tr>
                             <tr>Returns Center</tr>
                             <tr>Recalls and Products Safety Alerts</tr>
@@ -75,13 +75,61 @@ const Footer = ()=> {
                                  <span>India</span>
                             </div>     
                     </div>
-
-
-                    
                 </section>    
-                <section className="bg-Infobg">
+                    <section className=" bg-Infobg  pt-[1.932rem] pb-[1.563rem] text-[0.917rem]  font-light hover:cursor-pointer">
+                        <div className="flex gap-x-[8.125rem]  justify-center pr-[25.298rem] pl-[9.313rem]"> 
+                        {/*  */}
+                            <table className="w-[7.438rem]">
+                                    <thead className="font-medium">AbeBooks</thead>
+                                    <td className="text-light ">Books, art <br />& collectibles</td>
+                            </table>
+                            
+                            <table className="w-[9.394rem]"> 
+                                    <thead className="font-medium">Amazon web Services</thead>
+                                    <td className="text-light">Scalable Cloud<br /> Computing Services</td>
+                            </table>
+                      
+                            <table className="w-[8.028rem]">
+                                    <thead className="font-medium">Audible</thead>
+                                    <td className="text-light ">Download<br /> Audio Books</td>
+                            </table>
 
+                            <table className="w-[6.875rem]">
+                                    <thead className="font-medium">IMDb</thead>
+                                    <td className="text-light ">Movies, TV<br /> & Celebrities</td>
+                            </table>
+                        </div>
+                        <div className="flex gap-x-[8.125rem] pt-[1.251rem] justify-center pl-[9.313rem] pr-[17.81rem]  ">
+                        {/*  */}
+                            <table className="w-[7.438rem]"> 
+                                    <thead className="font-medium">Shop bop</thead>
+                                    <td className="text-light ">Designer<br />Fashion Brands</td>
+                            </table>
+                            <table  className="w-[9.394rem]">
+                                    <thead className="font-medium">Amazon Business</thead>
+                                    <td className="text-light">Everything For<br /> Your Business</td>
+                            </table>
+                            <table className="w-[8.028rem]"> 
+                                    <thead className="font-medium">Prime Now</thead>
+                                    <td className="text-light ">2-Hour Delivery<br /> on Everyday Items</td>
+                            </table>
+                            <table className="w-[14.364rem]">
+                                    <thead className="font-medium">Amazon Prime Music</thead>
+                                    <td className="text-light">100 million sings, ad-free <br /> Over 15 million podcast episodes</td>
+                            </table>
+
+                        </div>
+                        <table className="flex flex-col    text-center  mt-[1.693rem] text-[0.775rem] font-medium">
+                        {/*ml-[33.188rem] */}
+                                <tr className="flex justify-center gap-x-[1.625rem]  ">
+                                    <td>Conditons of Use & Sale</td>
+                                    <td>Privacy Notice</td>
+                                    <td>Interset-Based Ads</td>
+                                </tr>
+                                <tfoot>1996-2024, Amazon.com, Inc. or its affiliates</tfoot>
+                        </table>
                 </section>
+             
 
             </footer>
         </div>

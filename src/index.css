@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,7 +32,4 @@ body{
       background: #2836474a; /* Scrollbar color */
       border-radius: 10px;
     }
-    
-    footer {
-      font-family: "Noto Serif Gujarati", serif;
-}
+
