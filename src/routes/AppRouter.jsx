@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import  Header from "../components/layout/header";
+import Footer from "../components/layout/footer";
 import Location from "../pages/location";
 const Home = lazy(() => import("../pages/Home"));
 const Cart = lazy(() => import("../pages/Cart"));
@@ -23,7 +24,8 @@ const AppRouter = () => {
     <Provider store={store}>
       <Toaster />
       <BrowserRouter>
-      {/* <Header/> */}
+      {/* Comment it after finishing your work */}
+      <Header/>             
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" index element={<ProtectedRoute><Home /></ProtectedRoute>}  />
@@ -38,6 +40,7 @@ const AppRouter = () => {
             <Route path="/location" element={<ProtectedRoute><Location /></ProtectedRoute>} />
           </Routes>
         </Suspense>
+        <Footer/>
       </BrowserRouter>
     </Provider>
   );
