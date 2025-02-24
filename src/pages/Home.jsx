@@ -4,7 +4,7 @@ import ClothesCarousel from './../components/ecommerce/home/productsCarousel/Clo
 
 function Home() {
     return (
-        <div>
+        <div className="bg-[#575757]">
             <Landing/>
              <CardsSection/>
             <div className="mt-[60px]">
