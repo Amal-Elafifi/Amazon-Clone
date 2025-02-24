@@ -5,6 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .category-page aside h3 {
       @apply font-semibold text-sm
 }
