@@ -24,7 +24,7 @@ export default function Wishlist() {
   }
   return (
     <>
-      <section className="my-10">
+      <section className="my-10 font-Encode">
         {wishlistInfo?.count === 0 ? (
           <div className="text-center">
             <img

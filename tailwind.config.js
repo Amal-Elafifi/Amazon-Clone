@@ -10,8 +10,7 @@ export default {
         inika: ["Inika", 'serif'], // Add el custom hna
         Lato: ["Lato", "sans-serif"],
         gujarati: [ "Noto  Sans Gujarati", "serif"],
-        
-
+        Encode:["Encode Sans Expanded", "sans-serif"],
       },
       backgroundColor: {
         headerColor : 'rgba(19, 25, 33, 1)',

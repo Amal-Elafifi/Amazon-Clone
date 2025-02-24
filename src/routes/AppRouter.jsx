@@ -1,7 +1,5 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import  Header from "../components/layout/header";
-import Footer from "../components/layout/footer";
 import Location from "../pages/location";
 const Home = lazy(() => import("../pages/Home"));
 const Cart = lazy(() => import("../pages/Cart"));

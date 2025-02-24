@@ -19,8 +19,8 @@ export default function Cart() {
   }
   return (
     <>
-      <section className='my-6'>
-        {cartInfo?.numOfCartItems == 0 ?  <div className='text-center '>
+      <section className='my-6 '>
+        {cartInfo?.numOfCartItems == 0 ?  <div className='text-center font-Encode'>
           <img src={empty} className='mx-auto w-1/3' alt="emptyCart" />
           <p className='text-center text-3xl font-extrabold my-4 '>Your Cart Is Empty</p>
           <Link to="/" className=''>
