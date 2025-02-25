@@ -21,7 +21,6 @@ function Products(){
                 try {
                       const response = await axios.get('https://ecommerce.routemisr.com/api/v1/products')
                       setProducts(response.data.data)
-                      console.log(response.data.data[0])
                 } catch (error) {
                       console.log(error)
                 }

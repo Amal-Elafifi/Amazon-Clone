@@ -92,5 +92,3 @@ const wishlist = createSlice({
 })
 
 export const wishlistReducer = wishlist.reducer
-export default wishlistReducer;
-//slice
