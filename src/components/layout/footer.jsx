@@ -17,7 +17,7 @@ const Footer = ()=> {
                 <section className="  text-[1.049rem] font-light flex items-start gap-x-[7.688rem] px-[10.388rem] pt-[3.161rem] pb-[3.934rem] border-b border-borderBottom hover:cursor-pointer ">
                 
                     <table className="col1 w-[8.393rem] text-left">
-                            <thead className="font-semibold text-[1.154rem]">Get to know Us</thead>
+                            <thead className="font-semibold text-[1.154rem]"><tr><th>Get to know Us</th></tr></thead>
                             <tr>About Us</tr>
                             <tr>Careers</tr>
                             <tr>Press Releases</tr>
