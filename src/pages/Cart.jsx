@@ -23,7 +23,7 @@ export default function Cart() {
         {cartInfo?.numOfCartItems == 0 ?  <div className='text-center'>
           <img src={empty} className='mx-auto w-1/3' alt="emptyCart" />
           <p className='text-center text-3xl font-extrabold my-4 '>Your Cart Is Empty</p>
-          <Link to="/" className=''>
+          <Link to="/products" className=''>
           <button className='bg-[#131921] text-white font-bold px-5 py-3 rounded-lg active:scale-90 transition-all duration-300'>Continue Shopping</button>
           </Link>
         </div>: 

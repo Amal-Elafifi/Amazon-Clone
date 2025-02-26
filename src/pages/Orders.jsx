@@ -19,7 +19,7 @@ export default function Orders() {
       {orders?.length==0?<div className='text-center font-Encode   my-5'>
           <img src="/add-to-cart.png" className='mx-auto w-1/3' alt="" />
           <p className='text-center text-3xl font-extrabold mb-4'>No Orders Found</p>
-          <Link to="/" className='bg-[#131921] text-white font-bold px-4 py-3 rounded-lg hover:text-white border border-[#131921] hover:scale-110 active:scale-95'>Continue Shopping</Link>
+          <Link to="/products" className='bg-[#131921] text-white font-bold px-4 py-3 rounded-lg hover:text-white border border-[#131921] hover:scale-110 active:scale-95'>Continue Shopping</Link>
         </div>:<section className='font-Encode   mt-5'>
         <div className="text-center flex items-center justify-center gap-3 relative before:absolute before:bottom-0 before:left-[50%] before:w-24 before:rounded-lg before:h-1 before:top-full before:-translate-x-1/2 before:bg-[#131921]">
           <i className="fa-solid fa-store text-2xl"></i>

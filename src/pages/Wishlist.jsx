@@ -35,7 +35,7 @@ export default function Wishlist() {
               Your Wishlist Is Empty
             </p>
             <Link
-              to="/"
+              to="/products"
               className="bg-[#131921] text-white font-bold px-4 py-3 rounded-lg hover:text-white border border-[#131921] active:scale-95"
             >
               Continue Shopping
