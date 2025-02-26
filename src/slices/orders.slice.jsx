@@ -66,14 +66,12 @@ export const handleOnlinePayment = createAsyncThunk("orders/handleOnlinePayment"
             {
                 setTimeout(()=>{
                     window.location.href = data.session.url;
-                },2000)
+                },500)
             }
     } catch (error) {
-        toast.error("Something went wrong while redirecting")
-    }finally{
         toast.dismiss(toastId)
+        toast.error("Something went wrong while redirecting")
     }
-
 })
 // actions
 

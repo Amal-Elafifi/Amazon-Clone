@@ -36,20 +36,20 @@ export default function Wishlist() {
             </p>
             <Link
               to="/"
-              className="bg-[red] text-white font-bold px-4 py-3 rounded-lg hover:text-white border border-[red] active:scale-95"
+              className="bg-[#131921] text-white font-bold px-4 py-3 rounded-lg hover:text-white border border-[#131921] active:scale-95"
             >
               Continue Shopping
             </Link>
           </div>
         ) : (
           <>
-            <div className="text-center flex items-center  justify-center gap-2 relative before:absolute before:bottom-0 before:left-[50%] before:w-24 before:rounded-lg before:h-1 before:top-full before:-translate-x-1/2 before:bg-[red]">
-              <i className="fa-solid fa-heart text-2xl text-[red]"></i>
+            <div className="text-center flex items-center  justify-center gap-2 relative before:absolute before:bottom-0 before:left-[50%] before:w-24 before:rounded-lg before:h-1 before:top-full before:-translate-x-1/2 before:bg-[#131921]">
+              <i className="fa-solid fa-heart text-2xl text-[#131921]"></i>
               <h2 className="font-bold text-2xl">Your Wishlist</h2>
             </div>
-            <div className="rounded-lg overflow-hidden w-full md:w-8/12  border-[1px] mt-4 border-b-[0px] border-[red] mx-auto">
+            <div className="rounded-lg overflow-hidden w-full md:w-8/12  border-[1px] mt-4 border-b-[0px] border-[#131921] mx-auto">
               <table className="w-full text-center font-bold table-fixed">
-                <thead className="items-center  bg-[red] text-white">
+                <thead className="items-center  bg-[#131921] text-white">
                   <tr>
                     <th></th>
                     <th>Product</th>
@@ -59,7 +59,7 @@ export default function Wishlist() {
                 </thead>
                 <tbody className="">
                   {wishlistInfo?.data?.map((product) => (
-                    <tr key={product.id} className="border-b border-[red]">
+                    <tr key={product.id} className="border-b border-[#131921]">
                       <td
                         onClick={() => {
                           // hn3ml navigate le el product details
@@ -86,7 +86,7 @@ export default function Wishlist() {
                       <td className="flex gap-2 flex-col items-center md:flex-row md:justify-center md:mt-5">
                         <button
                         disabled={isLoadingUpdateCart}
-                          className="w-10 h-10 rounded-full bg-[red] text-lg text-white flex justify-center items-center  hover:scale-110 transition-transform duration-300 hover:rotate-12"
+                          className="w-10 h-10 rounded-full bg-[#131921] text-lg text-white flex justify-center items-center  hover:scale-110 transition-transform duration-300 hover:rotate-12"
                           onClick={(e) => {
                             dispatch(addProductToCart(product.id));
                           }}
