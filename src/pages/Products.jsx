@@ -10,8 +10,8 @@ import { Suspense } from "react";
 
 
 function Products(){
-    
-    const [products, setProducts] = useState([])
+    const [currentPage, setCurrentPage] = useState(1);
+    const [products, setProducts] = useState(null)
 
 
     useEffect(() => {
@@ -19,8 +19,10 @@ function Products(){
 
           const fetchData = async () => {
                 try {
-                      const response = await axios.get('https://ecommerce.routemisr.com/api/v1/products')
-                      setProducts(response.data.data)
+                      const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?limit=20&page=${currentPage}`)
+                      setProducts(response.data)
+                      console.log(response.data);
+                      
                 } catch (error) {
                       console.log(error)
                 }
@@ -31,7 +33,7 @@ function Products(){
           return () => {
             isMount = false;
           }    
-    }, [])
+    }, [currentPage])
     
     
     
@@ -71,7 +73,7 @@ function Products(){
                 <section className="grid grid-cols-1 gap-5 overflow-auto
                 sm:grid-cols-2 lg:grid-cols-4">
                     {
-                        products.map((product, i) => (
+                        products?.data.map((product, i) => (
                             <Card
                             key= {i}
                             description={product.description} 
@@ -84,7 +86,39 @@ function Products(){
                             />
                         ))
                     }
-
+                <div className="flex col-span-full justify-center mt-5 "> 
+                    <button onClick={()=>{
+                    setProducts(null)
+                    if(currentPage<=1)
+                    {
+                        setCurrentPage(products.metadata.numberOfPages)
+                    }
+                    else
+                    {
+                        setCurrentPage(currentPage-1)
+                    }
+                    }} href="#" className="flex items-center justify-center px-4 h-10 me-3 text-base font-medium text-white bg-footerbg border border-gray-300 rounded-lg hover:bg-gray-500 hover:text-white active:scale-90 transition-all duration-300">
+                    <svg className="w-3.5 h-3.5 me-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5H1m0 0 4 4M1 5l4-4" />
+                    </svg>
+                    </button>
+                    <button onClick={()=>{
+                    setProducts(null)
+                    if(currentPage>=products.metadata.numberOfPages)
+                    {
+                        setCurrentPage(1)
+                    }
+                    else
+                    {
+                        setCurrentPage(currentPage+1)
+                    }
+                    }}
+                    href="#" className="flex items-center justify-center px-4 h-10 text-base font-medium text-white bg-footerbg border border-gray-300 rounded-lg hover:bg-gray-500 hover:text-white active:scale-90 transition-all duration-300">
+                    <svg className="w-3.5 h-3.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M1 5h12m0 0L9 1m4 4L9 9" />
+                    </svg>
+                    </button>
+                </div>
                 </section>
             </div>
     )
