@@ -3,18 +3,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import empty from '/empty_cart.svg'
 import { Link } from 'react-router-dom'
 import { deleteAllCart, getCartProducts } from '../slices/cart.slice'
-import { ShoppingBag, ShoppingCart, Trash2 } from 'lucide-react'
+import { ShoppingBag} from 'lucide-react'
 import CartItemCard from '../components/CartItemCard'
 
 export default function Cart() {
-    const isLoading = useSelector(store=>store.cartReducer.isLoading)
+    const isLoadingCart = useSelector(store=>store.cartReducer.isLoadingCart)
     const dispatch = useDispatch()    
     const cartInfo = useSelector(store=>store.cartReducer.cartInfo)    
    useEffect(()=>{
     dispatch(getCartProducts())
     window.scrollTo(0,0)
   },[])
-  if(isLoading){
+  if(isLoadingCart){
    return <h3>Loading..............</h3>
   }
   return (

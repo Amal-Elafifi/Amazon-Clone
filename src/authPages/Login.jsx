@@ -1,6 +1,6 @@
 import {  useFormik } from "formik";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 import { logIn } from "../slices/user.slice";
 import { CircleAlert, Eye, EyeOff, Play } from "lucide-react";
@@ -11,6 +11,7 @@ export default function Login() {
   const toggleIcon = () => {
     setIsEyeVisible(!isEyeVisible); // Toggle the state
   };
+  const isLoadingUser=useSelector(store=>store.userReducer.isLoadingUser)
   const dispatch = useDispatch();
   let validationSchema = yup.object({
     email: yup
@@ -147,7 +148,8 @@ export default function Login() {
               </span>
             </div>
             <button
-              type=""
+              disabled={isLoadingUser}
+              type="submit"
               className="w-full bg-[#FFD814] py-[9px] px-[70.1px] rounded-[10px] font-normal text-xl active:scale-90 transition-all duration-200"
             >
               Log in
@@ -156,7 +158,7 @@ export default function Login() {
           <p>
             By continuing, you agree to Amazon’s{" "}
             <a
-              href=""
+              href="/"
               className="text-[#2A8FD7] font-inika border-b border-[#2A8FD7]"
             >
               {" "}
@@ -164,13 +166,13 @@ export default function Login() {
             </a>{" "}
             <br /> and{" "}
             <a
-              href=""
+              href="/"
               className="text-[#2A8FD7] border-b font-inika border-[#2A8FD7]"
             >
               Privacy Notice.
             </a>
           </p>
-          <details href="" className="  items-center font-inika ">
+          <details href="/" className="  items-center font-inika ">
             <summary className="text-[#2A8FD7]">Need help?</summary>
             <p className="">Forgot your password? Let’s get you a <Link to="/forgotPassword" className="text-[#2A8FD7]">new one</Link>.</p>
           </details>
@@ -186,7 +188,7 @@ export default function Login() {
           <div>
             <h3 className="font-semibold text-xl">Buying for work?</h3>
             <a
-              href=""
+              href="/"
               className="font-normal text-lg font-inika text-[#2A8FD7]"
             >
               Shop on Amazon Business
@@ -213,9 +215,9 @@ export default function Login() {
             <path d="M0 0H1400L698.372 4L0 0Z" fill="#D9D9D9" />
           </svg>
           <ul className="flex gap-[34.03px] justify-center">
-            <li><a href="" className="text-[#2A8FD7] font-inika font-normal">Conditions of Use</a></li>
-            <li><a href="" className="text-[#2A8FD7] font-inika font-normal">Privacy Notice</a></li>
-            <li><a href="" className="text-[#2A8FD7] font-inika font-normal">Help</a></li>
+            <li><a href="/" className="text-[#2A8FD7] font-inika font-normal">Conditions of Use</a></li>
+            <li><a href="/" className="text-[#2A8FD7] font-inika font-normal">Privacy Notice</a></li>
+            <li><a href="/" className="text-[#2A8FD7] font-inika font-normal">Help</a></li>
           </ul>
           <p className="font-light text-xl text-center">© 1996-2024, Amazon.com, Inc. or its affiliates</p>
         </div>

@@ -5,12 +5,12 @@ import RatingStars from "../../RatingStars";
 import Toast from "../../Toast";
 import {addProductToWishlist} from "../../../slices/wishlist.slice";
 import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart, updateProductCount } from "../../../slices/cart.slice";
 function Product () {
     const { id } = useParams();
-    console.log(id);
-    
+    const isLoadingWishList = useSelector(store=>store.wishlistReducer.isLoadingWishList)
+    const isLoadingUpdateCart =useSelector(store=>store.cartReducer.isLoadingUpdateCart)
     const dispatch = useDispatch();
     const [productInfo, setProductInfo] = useState(null);
     const [quantity, setQuantity] = useState(0);
@@ -92,7 +92,7 @@ function Product () {
                             // dispatch(updateProductCount({productId:id,count:quantity}))
                             }} className="bg-[#1F8394] rounded-full w-8 text-white  hover:brightness-125">+</button>
                     </p>
-                    <button className="rounded-full bg-[#FFD814] w-full h-[26.900775909423828px] my-2 hover:brightness-125" onClick={()=>{dispatch(addProductToCart(id))}}>Add to Cart</button>
+                    <button className="rounded-full bg-[#FFD814] w-full h-[26.900775909423828px] my-2 hover:brightness-125" disabled={isLoadingUpdateCart} onClick={()=>{dispatch(addProductToCart(id))}}>Add to Cart</button>
                     <button className="rounded-full bg-[#FFA41C] w-full h-[31.79073715209961px] my-1 hover:brightness-150">Buy Now</button>
                     <div className="grid grid-cols-2 gap-y-2 text-sm text-gray-600">
                         <span className="font-medium">Ships from</span>
@@ -103,7 +103,7 @@ function Product () {
                         <span className="text-[#1F8394]">Secure transaction</span>
                     </div>
                     <hr className="my-2"/>
-                        <button  onClick={()=>{dispatch(addProductToWishlist(id))}}
+                        <button disabled={isLoadingWishList}  onClick={()=>{dispatch(addProductToWishlist(id))}}
                             className="p-2 border rounded-xl w-full hover:bg-slate-400 hover:text-white">Add to List</button>
                 </div>
             </div>

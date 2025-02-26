@@ -1,13 +1,15 @@
 import Button from "./button"
 import { Link } from "react-router-dom"
 import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addProductToWishlist, removeProductFromWishlist } from "../slices/wishlist.slice"
 
 
 const Card = ({ description, image, sold, price, ratingNum, id }) => {
     const [heart,setHeart] = useState(false)
     const changeHeart= () => {setHeart(!heart)}
+    const isLoadingWishList =useSelector(store=>store.wishlistReducer.isLoadingWishList)
+       
     const dispatch = useDispatch()
   return (
       <div className="card  p-3 border-2 border-[#D9D9D9] ">
@@ -38,7 +40,7 @@ const Card = ({ description, image, sold, price, ratingNum, id }) => {
                   7:00 am - 9:00 pm</div>
               </div>
               <div className="flex justify-start gap-4 items-center ">
-              <Button productId={id} /> <i className={` ${heart?'fa-solid':'fa-regular'} fa-heart fa-xl cursor-pointer text-red-700`} 
+              <Button productId={id} /> <button disabled={isLoadingWishList}  className={` ${heart?'fa-solid':'fa-regular'} fa-heart fa-xl cursor-pointer text-red-700`} 
               onClick={()=>{
                 changeHeart()
                 if(heart){
@@ -48,7 +50,7 @@ const Card = ({ description, image, sold, price, ratingNum, id }) => {
 
                     dispatch(addProductToWishlist(id))
                 }
-              }}></i>
+              }}></button>
               </div>
               
           </div>

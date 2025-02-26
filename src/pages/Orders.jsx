@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 export default function Orders() {
   const dispatch = useDispatch()
   const orders = useSelector(store=>store.ordersReducer.orders)
-  const isLoading = useSelector(store=>store.ordersReducer.isLoading)
+  const isLoadingOrders = useSelector(store=>store.ordersReducer.isLoadingOrders)
   useEffect(()=>{
     dispatch(getUserOrders())
   },[])
-  if(isLoading){
+  if(isLoadingOrders){
     return <div>Loading........................</div>
   }
   return (

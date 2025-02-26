@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { deleteCartProduct, updateProductCount } from '../slices/cart.slice'
 import { Link } from 'react-router-dom'
 
@@ -7,6 +7,9 @@ export default function CartItemCard({productInfo}) {
     const dispatch = useDispatch()
     const{count,price,product} = productInfo
     const{title,imageCover,id} = product
+    const isLoadingUpdateCart = useSelector(store=>store.cartReducer.isLoadingUpdateCart)
+    console.log(isLoadingUpdateCart);
+    
   return (
     <>
        <div className='container w-11/12  mx-auto my-5'>
@@ -17,21 +20,21 @@ export default function CartItemCard({productInfo}) {
        <div>
         <Link to={`/product/${id}`}> <h2 className='text-2xl font-bold cursor-pointer line-clamp-3'>{title}</h2>
         </Link>
-        <p className='text-[--main-color] font-semibold my-3'>Price : <span className='font-thin text-slate-600 '>EGP {price}</span></p>
-        <button onClick={()=>{
+        <p className='text-[red] font-semibold my-3'>Price : <span className='font-thin text-slate-600 '>EGP {price}</span></p>
+        <button disabled={isLoadingUpdateCart} onClick={()=>{
             dispatch(deleteCartProduct(id))
           }
-            } className='font-semibold active:scale-95 hover:scale-110 duration-300 transition-all'><i className="fa-solid fa-trash-can text-[--main-color]"></i> Remove</button>
+            } className='font-semibold active:scale-95 hover:scale-110 duration-300 transition-all'><i className="fa-solid fa-trash-can text-[red]"></i> Remove</button>
        </div>
        <div className='flex items-center gap-5'>
-        <span onClick={()=>{
+        <button disabled={isLoadingUpdateCart} onClick={()=>{
             dispatch(updateProductCount({productId:id,count: count+1}))
 
-        }} className='w-8 h-8 flex justify-center items-center rounded-lg border-2 hover:scale-110 duration-300 transition-all border-[--main-color] cursor-pointer active:scale-90'><i className="fa-solid fa-plus text-[--main-color]"></i></span>
+        }} className='w-8 h-8 flex justify-center items-center rounded-lg border-2 hover:scale-110 duration-300 transition-all border-[red]  active:scale-90'><i className="fa-solid fa-plus text-[red]"></i></button>
         <p>{count}</p>
-        <span onClick={()=>{
+        <button disabled={isLoadingUpdateCart} onClick={()=>{
             dispatch(updateProductCount({productId:id,count: count-1}))
-        }} className='w-8 h-8 flex justify-center items-center rounded-lg border-2 hover:scale-110 duration-300 transition-all border-[--main-color] cursor-pointer active:scale-90'><i className="fa-solid fa-minus text-[--main-color]"></i></span>
+        }} className='w-8 h-8 flex justify-center items-center rounded-lg border-2 hover:scale-110 duration-300 transition-all border-[red]  active:scale-90'><i className="fa-solid fa-minus text-[red]"></i></button>
        </div>
        </div>
       </div>

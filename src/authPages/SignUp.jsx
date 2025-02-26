@@ -11,6 +11,7 @@ export default function SignUp() {
     const toggleIcon = () => {
       setIsEyeVisible(!isEyeVisible); // Toggle the state
     };
+      const isLoadingUser=useSelector(store=>store.userReducer.isLoadingUser)
     const dispatch = useDispatch()
     let validationSchema = yup.object({
         name: yup
@@ -222,7 +223,8 @@ export default function SignUp() {
                 <span onClick={toggleIcon} className="absolute top-[38px] right-3 cursor-pointer">{isEyeVisible?<Eye/>:<EyeOff/>}</span>
             </div>
             <button
-              type=""
+              disabled={isLoadingUser}
+              type="submit"
               className="w-full bg-[#FFD814] py-[9px] px-[70.1px] rounded-[10px] font-normal text-xl active:scale-90 transition-all duration-200"
             >
               Sign Up
@@ -241,7 +243,7 @@ export default function SignUp() {
           <div>
             <h3 className="font-semibold text-xl">Buying for work?</h3>
             <a
-              href=""
+              href="/"
               className="font-normal text-lg font-inika text-[#2A8FD7]"
             >
               Create a free business account
@@ -261,7 +263,7 @@ export default function SignUp() {
           </svg>
             <p className="font-inika text-lg">Already have an account? <Link to='/login' className="text-[#2A8FD7] font-inika ">Log in <Play size={10} className="inline-block" fill="#2A8FD7"/></Link></p>
             <p>By creating an account or logging in , you agree to Amazon’s <br />
-            <a href="" className="text-[#2A8FD7] font-inika border-b border-[#2A8FD7]">Conditions of Use</a> and <a href="" className="text-[#2A8FD7] border-b border-[#2A8FD7]">Privacy Notice.</a>
+            <a href="/" className="text-[#2A8FD7] font-inika border-b border-[#2A8FD7]">Conditions of Use</a> and <a href="/" className="text-[#2A8FD7] border-b border-[#2A8FD7]">Privacy Notice.</a>
             </p>
         </div>
         <div className="mt-10 w-full space-y-5">
@@ -275,9 +277,9 @@ export default function SignUp() {
             <path d="M0 0H1400L698.372 4L0 0Z" fill="#D9D9D9" />
           </svg>
           <ul className="flex gap-[34.03px] justify-center">
-            <li><a href="" className="text-[#2A8FD7] font-inika font-normal">Conditions of Use</a></li>
-            <li><a href="" className="text-[#2A8FD7] font-inika font-normal">Privacy Notice</a></li>
-            <li><a href="" className="text-[#2A8FD7] font-inika font-normal">Help</a></li>
+            <li><a href="/" className="text-[#2A8FD7] font-inika font-normal">Conditions of Use</a></li>
+            <li><a href="/" className="text-[#2A8FD7] font-inika font-normal">Privacy Notice</a></li>
+            <li><a href="/" className="text-[#2A8FD7] font-inika font-normal">Help</a></li>
           </ul>
           <p className="font-light text-xl text-center">© 1996-2024, Amazon.com, Inc. or its affiliates</p>
         </div>
