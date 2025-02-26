@@ -1,19 +1,20 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { MapPinned, Verified} from "lucide-react";
+import { MapPinned} from "lucide-react";
 import RatingStars from "../../RatingStars";
 import Toast from "../../Toast";
 import {addProductToWishlist} from "../../../slices/wishlist.slice";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToCart, updateProductCount } from "../../../slices/cart.slice";
+import { addProductToCart, BuyNow, updateProductCount } from "../../../slices/cart.slice";
 function Product () {
     const { id } = useParams();
     const isLoadingWishList = useSelector(store=>store.wishlistReducer.isLoadingWishList)
     const isLoadingUpdateCart =useSelector(store=>store.cartReducer.isLoadingUpdateCart)
+    const cartInfo = useSelector(store=>store.cartReducer.cartInfo)    
+    const quantityItem =useSelector(store=>store.cartReducer.quantityItem)
     const dispatch = useDispatch();
     const [productInfo, setProductInfo] = useState(null);
-    const [quantity, setQuantity] = useState(0);
     const [choosenImg, setChoosenImg] = useState(0);
     const [showToast, setShowToast] = useState(false);
     const dummyStars= [0,6,0,71,0];
@@ -34,7 +35,6 @@ function Product () {
         const productdata = (await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)).data.data;
         // const productdata = (await axios.get("https://ecommerce.routemisr.com/api/v1/products/6428de2adc1175abc65ca05b")).data.data;
         setProductInfo(productdata);
-        console.log(productdata);
     }
     useEffect(() => {
       getProduct();
@@ -83,17 +83,17 @@ function Product () {
                     <p className="text-[#B12704]">Usually ships within 4 to 5 days</p>
                     <p className="text-xl text-center flex gap-2">
                         <button onClick={()=>{
-                            if(quantity > 1) setQuantity(quantity-1);
                             // dispatch(updateProductCount({productId:id,count:quantity}))
                             }} className="bg-[#1F8394] rounded-full w-8 text-white  hover:brightness-125">-</button>
-                        Quantity: {quantity} 
+                        Quantity: {quantityItem} 
                         <button onClick={()=>{
-                            setQuantity(quantity+1);
                             // dispatch(updateProductCount({productId:id,count:quantity}))
                             }} className="bg-[#1F8394] rounded-full w-8 text-white  hover:brightness-125">+</button>
                     </p>
                     <button className="rounded-full bg-[#FFD814] w-full h-[26.900775909423828px] my-2 hover:brightness-125" disabled={isLoadingUpdateCart} onClick={()=>{dispatch(addProductToCart(id))}}>Add to Cart</button>
-                    <button className="rounded-full bg-[#FFA41C] w-full h-[31.79073715209961px] my-1 hover:brightness-150">Buy Now</button>
+                    <button className="rounded-full bg-[#FFA41C] w-full h-[31.79073715209961px] my-1 hover:brightness-150"  disabled={isLoadingUpdateCart} onClick={()=>{
+                        dispatch(BuyNow(id))
+                        }}>Buy Now</button>
                     <div className="grid grid-cols-2 gap-y-2 text-sm text-gray-600">
                         <span className="font-medium">Ships from</span>
                         <span>Monatik LLC</span>
