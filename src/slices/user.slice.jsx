@@ -122,12 +122,41 @@ const user = createSlice({
   initialState: {
     token: localStorage.getItem("token"),
     id: null,
+    isLoadingUser:false
   },
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(logIn.fulfilled, (state, action) => {
       state.token = action.payload.token;
       localStorage.setItem("token", action.payload.token);
+      state.isLoadingUser = false
+    });
+    builder.addCase(logIn.pending, (state, action) => {
+    state.isLoadingUser = true
+    });
+    builder.addCase(signUp.fulfilled, (state, action) => {
+    state.isLoadingUser = false
+    });
+    builder.addCase(signUp.pending, (state, action) => {
+    state.isLoadingUser = true
+    });
+    builder.addCase(forgetPassword.fulfilled, (state, action) => {
+    state.isLoadingUser = false
+    });
+    builder.addCase(forgetPassword.pending, (state, action) => {
+    state.isLoadingUser = true
+    });
+    builder.addCase(verifyResetCode.fulfilled, (state, action) => {
+    state.isLoadingUser = false
+    });
+    builder.addCase(verifyResetCode.pending, (state, action) => {
+    state.isLoadingUser = true
+    });
+    builder.addCase(resetPassword.fulfilled, (state, action) => {
+    state.isLoadingUser = false
+    });
+    builder.addCase(resetPassword.pending, (state, action) => {
+    state.isLoadingUser = true
     });
   },
 });

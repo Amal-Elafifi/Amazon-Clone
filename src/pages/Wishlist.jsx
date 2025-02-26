@@ -8,18 +8,17 @@ import {
 import { addProductToCart } from "../slices/cart.slice";
 export default function Wishlist() {
   const dispatch = useDispatch();
-  const isLoading = useSelector((store) => store.wishlistReducer.isLoading);
+  const isLoadingWishList = useSelector((store) => store.wishlistReducer.isLoadingWishList);
   const wishlistInfo = useSelector(
     (store) => store.wishlistReducer.wishlistInfo
-  );
-  console.log(wishlistInfo);
-
+  );  
+  const isLoadingUpdateCart =useSelector(store=>store.cartReducer.isLoadingUpdateCart)
   let navigate = useNavigate();
   useEffect(() => {
     dispatch(getWishlist());
     window.scrollTo(0, 0);
   }, []);
-  if (isLoading) {
+  if (isLoadingWishList) {
     return <h1>Loading....................</h1>;
   }
   return (
@@ -64,7 +63,7 @@ export default function Wishlist() {
                       <td
                         onClick={() => {
                           // hn3ml navigate le el product details
-                          // navigate(``)
+                          navigate(`/product/${product.id}`)
                         }}
                         className="cursor-pointer"
                       >
@@ -77,7 +76,7 @@ export default function Wishlist() {
                       <td
                         onClick={() => {
                           // hn3ml navigate le el product details
-                          // navigate(``)
+                          navigate(`/product/${product.id}`)
                         }}
                         className="cursor-pointer"
                       >
@@ -85,16 +84,17 @@ export default function Wishlist() {
                       </td>
                       <td>EGP {product.price}</td>
                       <td className="flex gap-2 flex-col items-center md:flex-row md:justify-center md:mt-5">
-                        <div
-                          className="w-10 h-10 rounded-full bg-[red] text-lg text-white flex justify-center items-center cursor-pointer hover:scale-110 transition-transform duration-300 hover:rotate-12"
+                        <button
+                        disabled={isLoadingUpdateCart}
+                          className="w-10 h-10 rounded-full bg-[red] text-lg text-white flex justify-center items-center  hover:scale-110 transition-transform duration-300 hover:rotate-12"
                           onClick={(e) => {
                             dispatch(addProductToCart(product.id));
                           }}
                         >
                           <i className="fa-solid fa-cart-shopping"></i>
-                        </div>
-                        <div
-                          className="w-10 h-10 rounded-full bg-red-600 text-lg text-white flex justify-center items-center cursor-pointer hover:scale-110 transition-transform duration-300 hover:rotate-12"
+                        </button>
+                        <button
+                          className="w-10 h-10 rounded-full bg-red-600 text-lg text-white flex justify-center items-center  hover:scale-110 transition-transform duration-300 hover:rotate-12"
                           onClick={(e) => {
                             dispatch(removeProductFromWishlist(product.id));
                             setTimeout(() => {
@@ -103,7 +103,7 @@ export default function Wishlist() {
                           }}
                         >
                           <i className="fa-solid fa-trash-can"></i>
-                        </div>
+                        </button>
                       </td>
                     </tr>
                   ))}

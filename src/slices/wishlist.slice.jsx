@@ -77,16 +77,28 @@ const wishlist = createSlice({
     name:"wishlist",
     initialState:{
         wishlistInfo:null,
-        isLoading:false
+        isLoadingWishList:false
     },
     reducers:{},
     extraReducers:(builder)=>{
         builder.addCase(getWishlist.fulfilled,(state,action)=>{
-            state.isLoading=false
+            state.isLoadingWishList=false
             state.wishlistInfo=action.payload            
         })
         builder.addCase(getWishlist.pending,(state,action)=>{
-            state.isLoading=true
+            state.isLoadingWishList=true
+        })
+        builder.addCase(addProductToWishlist.fulfilled,(state,action)=>{
+            state.isLoadingWishList=false
+        })
+        builder.addCase(addProductToWishlist.pending,(state,action)=>{
+            state.isLoadingWishList=true
+        })
+        builder.addCase(removeProductFromWishlist.fulfilled,(state,action)=>{
+            state.isLoadingWishList=false
+        })
+        builder.addCase(removeProductFromWishlist.pending,(state,action)=>{
+            state.isLoadingWishList=true
         })
     },
 })

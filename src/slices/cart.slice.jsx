@@ -127,29 +127,41 @@ const cart = createSlice({
     name: "cart",
     initialState: {
         cartInfo: null,
-        isLoading: false,
+        isLoadingCart: false,
+        isLoadingUpdateCart: false,
     },
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(getCartProducts.fulfilled,(state,action)=>{  
             state.cartInfo = action.payload;
-            state.isLoading= false;
+            state.isLoadingCart= false;
         }),
         builder.addCase(getCartProducts.pending,(state,action)=>{  
-            state.isLoading= true;
+            state.isLoadingCart= true;
         }),
         builder.addCase(addProductToCart.fulfilled,(state,action)=>{  
             state.cartInfo = action.payload;
+            state.isLoadingUpdateCart= false;
+        }),
+        builder.addCase(addProductToCart.pending,(state,action)=>{  
+            state.isLoadingUpdateCart= true;
         }),
         builder.addCase(deleteCartProduct.fulfilled,(state,action)=>{            
             state.cartInfo = action.payload;
+            state.isLoadingUpdateCart= false;
+        })
+        builder.addCase(deleteCartProduct.pending,(state,action)=>{            
+            state.isLoadingUpdateCart= true;
         })
         builder.addCase(deleteAllCart.fulfilled,(state,action)=>{
             state.cartInfo = null
         })
-
         builder.addCase(updateProductCount.fulfilled,(state,action)=>{      
             state.cartInfo = action.payload
+            state.isLoadingUpdateCart= false;
+        })
+        builder.addCase(updateProductCount.pending,(state,action)=>{      
+            state.isLoadingUpdateCart= true;
         })
     },
 })

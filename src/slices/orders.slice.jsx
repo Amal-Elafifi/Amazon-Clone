@@ -47,7 +47,7 @@ export const handleCashOrder = createAsyncThunk("orders/handleCashOrder",async({
     }
 
 })
-export const handleOnlinePayment = createAsyncThunk("orders/handleCashOrder",async({cartId,values},{getState})=>{
+export const handleOnlinePayment = createAsyncThunk("orders/handleOnlinePayment",async({cartId,values},{getState})=>{
     toastId=toast.loading("Redirecting...")
     const token = getState().userReducer.token;
     const options = {
@@ -82,16 +82,28 @@ const orders = createSlice({
     name: "orders",
     initialState: {
         orders:null,
-        isLoading:false,
+        isLoadingOrders:false,
     },
     reducers:{},
     extraReducers: (builder) => {
         builder.addCase(getUserOrders.pending,(state,action)=>{
-            state.isLoading = true
+            state.isLoadingOrders = true
         })
         builder.addCase(getUserOrders.fulfilled,(state,action)=>{            
             state.orders = action.payload
-            state.isLoading = false
+            state.isLoadingOrders = false
+        })
+        builder.addCase(handleCashOrder.pending,(state,action)=>{
+            state.isLoadingOrders = true
+        })
+        builder.addCase(handleCashOrder.fulfilled,(state,action)=>{            
+            state.isLoadingOrders = false
+        })
+        builder.addCase(handleOnlinePayment.pending,(state,action)=>{
+            state.isLoadingOrders = true
+        })
+        builder.addCase(handleOnlinePayment.fulfilled,(state,action)=>{            
+            state.isLoadingOrders = false
         })
     }
 })

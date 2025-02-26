@@ -9,6 +9,7 @@ export default function Checkout() {
     const [paymentMethod,setPaymentMethod] = useState(null)
     const dispatch = useDispatch()
     const cartInfo = useSelector(store=>store.cartReducer.cartInfo)
+    const isLoadingOrders = useSelector(store=>store.ordersReducer.isLoadingOrders)    
     let validationSchema = yup.object({
         shippingAddress:yup.object(
         {
@@ -132,12 +133,14 @@ export default function Checkout() {
       </div>
       <div className='flex justify-between gap-2 items-center'>
       <button
+      disabled={isLoadingOrders}
       onClick={()=>{setPaymentMethod("cash")}}
         type="submit"
         className="text-white bg-[red]  font-bold px-5 py-2.5  rounded-lg text-base  text-center active:scale-95"
       >Pay On Delivery <i className="fa-solid fa-truck"></i> 
       </button>
       <button
+      disabled={isLoadingOrders}
       onClick={()=>{setPaymentMethod("online")}}
         type="submit"
         className="text-white bg-[red] font-bold px-5 py-2.5 rounded-lg text-base  text-center active:scale-95"
