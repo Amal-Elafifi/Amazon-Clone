@@ -124,7 +124,12 @@ const user = createSlice({
     id: null,
     isLoadingUser:false
   },
-  reducers: {},
+  reducers: {
+    logout:(state,action)=>{
+      localStorage.removeItem('token')
+      state.token = null
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(logIn.fulfilled, (state, action) => {
       state.token = action.payload.token;
@@ -161,4 +166,5 @@ const user = createSlice({
   },
 });
 export const userReducer = user.reducer;
+export const {logout} = user.actions;
 //slice

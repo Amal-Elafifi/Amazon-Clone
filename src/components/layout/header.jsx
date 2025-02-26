@@ -12,6 +12,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { logout } from "../../slices/user.slice";
 
 
 const Header =() => {
@@ -101,9 +102,11 @@ const Header =() => {
             <Link to="/wishlist" className=" hover:border-amber-50 border-2 border-[#131921] p-1 hover:text-amber-50">
                   WishList
             </Link>
-            <Link to='/login' className="text-red-600 hover:text-amber-50">
+            <button onClick={()=>{
+              dispatch(logout())
+            }} className="text-red-600 cursor-pointer hover:text-amber-50">
             Logout
-            </Link>
+            </button>
             
           </Nav>
         </Navbar.Collapse>
