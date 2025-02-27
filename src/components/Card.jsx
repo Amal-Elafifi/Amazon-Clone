@@ -15,7 +15,7 @@ const Card = ({ description, image, sold, price, ratingNum, id }) => {
       <div className="card  p-3 border-2 border-[#D9D9D9] ">
         
       <div className="card-container flex flex-col gap-6">
-          <Link to={`/product/${id}`} ><img className="" src={`${image}`} alt="product" /></Link>
+          <Link to={`/product/${id}`} ><img className="max-w-[200px] mx-auto" src={`${image}`} alt="product" /></Link>
           <div className="details flex flex-col gap-4">
               <h3 className="text-[16px] font-medium leading-5">{description.length > 80 ? description.slice(0, 80)+ '...': description}</h3>
               <div className="review flex flex-col gap-2">
