@@ -21,12 +21,14 @@ const ResetPassword = lazy(()=> import("../authPages/ResetPassword"))
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 import { Toaster } from "react-hot-toast";
+import LottieComponent from "../components/common/lottie/LottieComponent";
+import Error from "../pages/Error";
 const AppRouter = () => {
   return (
     <Provider store={store}>
       <Toaster />
       <BrowserRouter>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<LottieComponent type="loadingAnimation" />}>
           <Routes>
             <Route path="/" element={<ProtectedRoute><LayoutUser/></ProtectedRoute>} >
             <Route index element={<Home />}  />
@@ -45,6 +47,7 @@ const AppRouter = () => {
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/verifyResetCode" element={<VerifyResetCode />} />
             <Route path="/resetPassword" element={<ResetPassword />} />
+            <Route path="*" element={<Error/>} />
           </Routes>
         </Suspense>
       </BrowserRouter>

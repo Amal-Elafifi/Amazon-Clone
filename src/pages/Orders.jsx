@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserOrders } from '../slices/orders.slice'
 import moment from 'moment';
 import { Link, useNavigate } from 'react-router-dom';
+
 export default function Orders() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -12,7 +13,10 @@ export default function Orders() {
     dispatch(getUserOrders())
   },[])
   if(isLoadingOrders){
-    return <div>Loading........................</div>
+    return (
+        <div>Loading........................</div>
+   
+    )
   }
   return (
     <>

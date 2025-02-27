@@ -7,6 +7,7 @@ import { handleCashOrder, handleOnlinePayment } from "../slices/orders.slice";
 
 export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const cartInfo = useSelector((store) => store.cartReducer.cartInfo);
   const isLoadingOrders = useSelector(

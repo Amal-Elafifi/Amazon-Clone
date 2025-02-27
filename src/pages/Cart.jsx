@@ -4,7 +4,8 @@ import empty from '/empty_cart.svg'
 import { Link } from 'react-router-dom'
 import { deleteAllCart, getCartProducts } from '../slices/cart.slice'
 import { ShoppingBag} from 'lucide-react'
-import CartItemCard from '../components/CartItemCard'
+import CartItemCard from '../components/CartItemCard';
+import LottieComponent from "../components/common/lottie/LottieComponent";
 
 export default function Cart() {
     const isLoadingCart = useSelector(store=>store.cartReducer.isLoadingCart)
@@ -15,7 +16,11 @@ export default function Cart() {
     window.scrollTo(0,0)
   },[])
   if(isLoadingCart){
-   return <h3>Loading..............</h3>
+   return (
+    <>
+    <LottieComponent type="loadingAnimation"/>
+    </>
+   )
   }
   return (
     <>

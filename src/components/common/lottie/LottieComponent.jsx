@@ -15,7 +15,7 @@ const LottieComponent = ({type}) => {
     const defaultOptions = {
         loop: true,
         autoplay: true,
-        animationData: {lottie},
+        animationData: lottie,
         rendererSettings: {
           preserveAspectRatio: "xMidYMid slice"
         }

@@ -1,8 +1,8 @@
 import LottieComponent from "../common/lottie/lottieComponent";
 import PropTypes from "prop-types";
 
-const Loading = ({status}) => {
-
+const Loading = () => {
+    
     if(status === "pending"){
         return <LottieComponent type="loadingAnimation"/>
     }else if(status === "rejected") {

@@ -6,6 +6,7 @@ import {
   removeProductFromWishlist,
 } from "../slices/wishlist.slice";
 import { addProductToCart } from "../slices/cart.slice";
+
 export default function Wishlist() {
   const dispatch = useDispatch();
   const isLoadingWishList = useSelector((store) => store.wishlistReducer.isLoadingWishList);
@@ -19,7 +20,7 @@ export default function Wishlist() {
     window.scrollTo(0, 0);
   }, []);
   if (isLoadingWishList) {
-    return <h1>Loading....................</h1>;
+    return <h1>Loading....................</h1>
   }
   return (
     <>

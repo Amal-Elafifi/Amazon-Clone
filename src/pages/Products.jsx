@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import Card from "../components/Card";
 import axios from "axios";
-import Loading from "../components/feedback/Loading";
-import { Suspense } from "react";
 
 
 

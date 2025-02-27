@@ -5,9 +5,11 @@ import * as yup from "yup";
 import { logIn } from "../slices/user.slice";
 import { CircleAlert, Eye, EyeOff, Play } from "lucide-react";
 import { Link } from "react-router-dom";
+import LottieComponent from "../components/common/lottie/LottieComponent";
 
 export default function Login() {
   const [isEyeVisible, setIsEyeVisible] = useState(false); // state for visibility
+  const [isLoading, setIsLoading] = useState(false);
   const toggleIcon = () => {
     setIsEyeVisible(!isEyeVisible); // Toggle the state
   };
@@ -147,10 +149,15 @@ export default function Login() {
                 {isEyeVisible ? <Eye /> : <EyeOff />}
               </span>
             </div>
+            {/*  */}
+            {/*  */}
+            {/*  */}
+            {isLoading && <LottieComponent type="loadingAnimation" />}
             <button
               disabled={isLoadingUser}
               type="submit"
               className="w-full bg-[#FFD814] py-[9px] px-[70.1px] rounded-[10px] font-normal text-xl active:scale-90 transition-all duration-200"
+              onClick = {() => setIsLoading(true)}
             >
               Log in
             </button>
