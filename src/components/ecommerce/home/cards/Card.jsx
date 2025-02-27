@@ -1,4 +1,6 @@
 import Card from 'react-bootstrap/Card';
+import {Link} from "react-router-dom";
+
 
 
 function CardItem ({title, linkText, body }) {
@@ -8,7 +10,8 @@ function CardItem ({title, linkText, body }) {
             <Card.Body className='flex flex-wrap gap-2'>
                     {body}
             </Card.Body>
-            <Card.Link href="#" className='text-[#78d4e2] ml-[7px] font-semibold'>{linkText}</Card.Link>
+              <Link className='text-[#78d4e2] ml-[7px] font-bold' to="/categories">{linkText}
+            </Link>
         </Card>
     )
 }

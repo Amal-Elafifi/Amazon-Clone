@@ -34,7 +34,6 @@ export const addProductToCart = createAsyncThunk("cart/addProductToCart",async(p
     }
     try {
         const {data} = await axios.request(options)
-        console.log(data);
         if(data.status === "success")
             {
                 toast.success(data.message)
@@ -46,6 +45,31 @@ export const addProductToCart = createAsyncThunk("cart/addProductToCart",async(p
     }
     finally{
         toast.dismiss(toastId)
+    }
+})
+export const BuyNow = createAsyncThunk("cart/BuyNow",async(productId,{getState})=>{
+    toastId = toast.loading("Redirecting ...")
+    const token = getState().userReducer.token;
+    const options = {
+        url:`https://ecommerce.routemisr.com/api/v1/cart`,
+        method: "POST",
+        headers: {
+            token,
+        },
+        data:{
+            productId,
+        }
+    }
+    try {
+        const {data} = await axios.request(options)
+        if(data.status === "success")
+            {
+                location.href = "/checkout"
+            }
+            return data
+    } catch (error) {
+        toast.dismiss(toastId)
+        toast.error("Error Occurred")
     }
 })
 export const deleteCartProduct = createAsyncThunk("cart/deleteCartProduct",async(productId,{getState})=>{
@@ -129,6 +153,7 @@ const cart = createSlice({
         cartInfo: null,
         isLoadingCart: false,
         isLoadingUpdateCart: false,
+        quantityItem:0,
     },
     reducers: {},
     extraReducers: (builder) => {
