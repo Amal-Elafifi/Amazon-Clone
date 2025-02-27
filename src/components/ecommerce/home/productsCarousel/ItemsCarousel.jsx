@@ -3,7 +3,7 @@ import ProductsCarousel from "./ProductsCarousel";
 function ItemsCarousel () {
     return (
         <>
-        <ProductsCarousel
+        <ProductsCarousel 
             img1={<img src="/public/assets/images/items/bottles.png" className="max-w-[90%]"/>}
             img2={<img src="/public/assets/images/items/rack.png" className="max-w-[90%]"/>}
             img3={<img src="/public/assets/images/items/jars.png" className="max-w-[90%]"/>}
