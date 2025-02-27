@@ -15,7 +15,7 @@ const Orders = lazy(()=> import("../pages/Orders"))
 const LayoutUser = lazy(()=> import("../layouts/LayoutUser"))
 const ProtectedRoute = lazy(()=> import("../protectedRoute/ProtectedRoute"))
 const Loading = lazy(()=> import("../components/feedback/Loading"))
-const VerifyResetCode = lazy(()=> import("../authPages/verifyResetCode"))
+const VerifyResetCode = lazy(()=> import("../authPages/VerifyResetCode"))
 const ForgotPassword = lazy(()=> import("../authPages/ForgotPassword"))
 const ResetPassword = lazy(()=> import("../authPages/ResetPassword"))
 import { Provider } from "react-redux";
