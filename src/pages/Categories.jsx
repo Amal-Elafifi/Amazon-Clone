@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
 import axios from "axios";
 import Loading from "../components/feedback/Loading";
 import { Suspense } from "react";
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -12,7 +12,7 @@ import { Suspense } from "react";
 function Categories() {
     
     const [products, setProducts] = useState([])
-
+    const filter = useRef(null)
 
     useEffect(() => {
         let isMount = true;
@@ -33,12 +33,17 @@ function Categories() {
             isMount = false;
           }    
     }, [])
+
+    function handleFilter () {
+        filter.current.classList.toggle('hidden')
+    }
     
     
     
     return (
-            <div className="category-page flex gap-3 p-6 ">
-                <aside>
+            <div className="category-page md:gap-3 flex flex-col md:flex-row p-6 ">
+                <FontAwesomeIcon onClick={handleFilter} icon={faBars} className="text-3xl cursor-pointer md:hidden mb-3"/>
+                <aside ref={filter} className="hidden md:block">
                     <section className="flex flex-col justify-start gap-6 
                     w-[150px] text-sm ">
                         <div className="delivery ">
