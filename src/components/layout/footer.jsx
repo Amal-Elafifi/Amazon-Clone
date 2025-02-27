@@ -9,130 +9,130 @@ const Footer = ()=> {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       };
-    return(
-        <div className="">
-            <div className="font-gujarati  bg-upFooter text-white  text-center  py-[1.781rem] hover:cursor-pointer" onClick={scrollToTop}>Back to Top</div>
+        return(
+        <div className="flex flex-col">
+                <div className="font-gujarati  bg-upFooter text-white  text-center  py-[1.781rem] hover:cursor-pointer" onClick={scrollToTop}>Back to Top</div>
+                <footer className="flex flex-col w-full">
+                        <section className="us w-full bg-[#232F3E] text-amber-50 pb-4">
+                                <ul className="grid grid-cols-2 md:grid-cols-4  gap-4 line- 
+                                px-[10%] py-5 w-full">
+                                        <li><strong>Get to know Us</strong>
+                                                <ul>
+                                                        <li>About Us</li>
+                                                        <li>Careers</li>
+                                                        <li>Press Releases</li>
+                                                        <li>Amazon Science</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Connect with Us</strong>
+                                                <ul>
+                                                        <li>Facebook</li>
+                                                        <li>Twitter</li>
+                                                        <li>Instagram</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Make Money with Us</strong>
+                                                <ul>
+                                                        <li>Sell on Amazon</li>
+                                                        <li>Sell under Amazon Accelerator</li>
+                                                        <li>Protect and Build Your Brand</li>
+                                                        <li>Amazon Global Selling</li>
+                                                        <li>Supply to Amazon</li>
+                                                        <li>Become an Affiliate</li>
+                                                        <li>Fulfillment by Amazon</li>
+                                                        <li>Advertise Your Products</li>
+                                                        <li>Amazon Pay on Merchants</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Let Us Help You</strong>
+                                                <ul>
+                                                <li>Your Account</li>
+                                                <li>Returns Center</li>
+                                                <li>Recalls and Product Safety Alerts</li>
+                                                <li>100% Purchase Protection</li>
+                                                <li>Amazon App Download</li>
+                                                <li>Help</li>
+                                                </ul>
+                                        </li>
+                                </ul>
+                                <hr />
+                                <div className="p-3 flex items-center justify-center gap-3">
+                                        <Link to="/" className='' > 
+                                                <img src={amazonlogo} alt="logo" className=""/>
+                                        </Link>
+                                        <div className="text-footerdark  flex  gap-3">
+                                                <div className="country flex gap-x-[0.625rem] p-[0.625rem] border rounded-[3px] border-footerdark">
+                                                        <Globe></Globe>
+                                                        <span className="">English</span>
+                                                        <div className="updownicons flex flex-col items-center justify-center">
+                                                        <FontAwesomeIcon icon={faCaretUp} className="text-lightfont w-[0.5rem] h-[0.4rem]" /> 
+                                                        <FontAwesomeIcon icon={faCaretDown} className="text-lightfont  w-[0.5rem] h-[0.4rem]" />
+                                                        </div>
+                                                </div>
 
-            <footer className="bg-footerbg text-white font-gujarati ">
-                <section className="  text-[1.049rem] font-light flex items-start gap-x-[7.688rem] px-[10.388rem] pt-[3.161rem] pb-[3.934rem] border-b border-borderBottom hover:cursor-pointer ">
-                
-                    <table className="col1 w-[8.393rem] text-left">
-                            <thead className="font-semibold text-[1.154rem]"><tr><th>Get to know Us</th></tr></thead>
-                            <tr>About Us</tr>
-                            <tr>Careers</tr>
-                            <tr>Press Releases</tr>
-                            <tr>Amazon Science</tr>
-                    </table>
-
-              
-                    <table className="col2 w-[8.393rem]">
-                            <thead className="font-semibold text-[1.154rem]">Connect with Us</thead>
-                            <tr>Facebook</tr>
-                            <tr>Twitter</tr>
-                            <tr>Instagram</tr>
-                    </table>
-
-                    <table className="col3 w-[14.688rem]">
-                            <thead className="font-semibold text-[1.154rem]">Make Money with Us</thead>
-                            <tr>Sell on Amazon</tr>
-                            <tr>Sell under Amazon Accelerator</tr>
-                            <tr>Protect and Build Your Brand</tr>
-                            <tr>Amazon Global Selling</tr>
-                            <tr>Supply to Amazon</tr>
-                            <tr>Become an Affiliate</tr>
-                            <tr>Fulfilment by Amazon</tr>
-                            <tr>Advertise Your Products</tr>
-                            <tr>Amazon Pay on Merchants</tr>
-                    </table>
-
-                    <table className="col4">
-                            <thead className="font-semibold text-[1.154rem]">Let Us Help You</thead>
-                            <tr>Your Account</tr>
-                            <tr>Returns Center</tr>
-                            <tr>Recalls and Products Safety Alerts</tr>
-                            <tr>100% Purchase Protection</tr>
-                            <tr>Amazon App Download</tr>
-                            <tr>Help</tr>
-                    </table>
-                </section>
-                
-                <section className="bg-inherit flex justify-center gap-x-[3.75rem] items-center">
-                    <Link to="/" className='pt-[1.594rem] pb-[2.782rem]' > 
-                            <img src={amazonlogo} alt="logo" className="px-[0.483rem] py-[1.063rem] "/>
-                    </Link>
-                    <div className="text-footerdark  flex gap-x-[0.75rem] pt-[1.813rem] pb-[3.438rem]">
-                            <div className="country flex gap-x-[0.625rem] p-[0.625rem] border rounded-[3px] border-footerdark w-[8.75rem]">
-                                 <Globe></Globe>
-                                <span className="pr-[1.625rem]">English</span>
-                                <div className="updownicons flex flex-col items-center justify-center">
-                                     <FontAwesomeIcon icon={faCaretUp} className="text-lightfont w-[0.5rem] h-[0.4rem]" /> 
-                                     <FontAwesomeIcon icon={faCaretDown} className="text-lightfont  w-[0.5rem] h-[0.4rem]" />
+                                                <div className="language flex items-center gap-x-[0.625rem] border rounded-[3px] border-footerdark w-[6.875rem] p-[0.625rem] ">
+                                                        <img src={indiaFlag} alt="icon"  className="w-[1.125rem] h-[1.125rem]"/>
+                                                        <span>India</span>
+                                                </div>     
+                                        </div>
                                 </div>
-                            </div>
-
-                            <div className="language flex items-center gap-x-[0.625rem] border rounded-[3px] border-footerdark w-[6.875rem] p-[0.625rem] ">
-                                 <img src={indiaFlag} alt="icon"  className="w-[1.125rem] h-[1.125rem]"/>
-                                 <span>India</span>
-                            </div>     
-                    </div>
-                </section>    
-                    <section className=" bg-Infobg  pt-[1.932rem] pb-[1.563rem] text-[0.917rem]  font-light hover:cursor-pointer">
-                        <div className="flex gap-x-[8.125rem]  justify-center pr-[25.298rem] pl-[9.313rem]"> 
-                        {/*  */}
-                            <table className="w-[7.438rem]">
-                                    <thead className="font-medium">AbeBooks</thead>
-                                    <td className="text-light ">Books, art <br />& collectibles</td>
-                            </table>
-                            
-                            <table className="w-[9.394rem]"> 
-                                    <thead className="font-medium">Amazon web Services</thead>
-                                    <td className="text-light">Scalable Cloud<br /> Computing Services</td>
-                            </table>
-                      
-                            <table className="w-[8.028rem]">
-                                    <thead className="font-medium">Audible</thead>
-                                    <td className="text-light ">Download<br /> Audio Books</td>
-                            </table>
-
-                            <table className="w-[6.875rem]">
-                                    <thead className="font-medium">IMDb</thead>
-                                    <td className="text-light ">Movies, TV<br /> & Celebrities</td>
-                            </table>
-                        </div>
-                        <div className="flex gap-x-[8.125rem] pt-[1.251rem] justify-center pl-[9.313rem] pr-[17.81rem]  ">
-                        {/*  */}
-                            <table className="w-[7.438rem]"> 
-                                    <thead className="font-medium">Shop bop</thead>
-                                    <td className="text-light ">Designer<br />Fashion Brands</td>
-                            </table>
-                            <table  className="w-[9.394rem]">
-                                    <thead className="font-medium">Amazon Business</thead>
-                                    <td className="text-light">Everything For<br /> Your Business</td>
-                            </table>
-                            <table className="w-[8.028rem]"> 
-                                    <thead className="font-medium">Prime Now</thead>
-                                    <td className="text-light ">2-Hour Delivery<br /> on Everyday Items</td>
-                            </table>
-                            <table className="w-[14.364rem]">
-                                    <thead className="font-medium">Amazon Prime Music</thead>
-                                    <td className="text-light">100 million sings, ad-free <br /> Over 15 million podcast episodes</td>
-                            </table>
-
-                        </div>
-                        <table className="flex flex-col    text-center  mt-[1.693rem] text-[0.775rem] font-medium">
-                        {/*ml-[33.188rem] */}
-                                <tr className="flex justify-center gap-x-[1.625rem]  ">
-                                    <td>Conditons of Use & Sale</td>
-                                    <td>Privacy Notice</td>
-                                    <td>Interset-Based Ads</td>
-                                </tr>
-                                <tfoot>1996-2024, Amazon.com, Inc. or its affiliates</tfoot>
-                        </table>
-                </section>
-             
-
-            </footer>
+                        </section>
+                        <section className="details bg-[#131A22] w-full 
+                        text-amber-50 flex flex-col gap-14 py-5 ">
+                                <ul className="grid grid-cols-2 md:grid-cols-4 px-[10%] gap-x-6 gap-y-4">
+                                        <li><strong>AbeBooks</strong>
+                                                <ul>
+                                                        <li>Books, art & collectibles</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Shopbop</strong>
+                                                <ul>
+                                                        <li>Designer Fashion Brands</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Amazon Web Services</strong>
+                                                <ul>
+                                                        <li>Scalable Cloud Computing Services</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Amazon Business</strong>
+                                                <ul>
+                                                        <li>Everything For Your Business</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Audible</strong>
+                                                <ul>
+                                                        <li>Download Audio Books</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Prime Now</strong>
+                                                <ul>
+                                                        <li>2-Hour Delivery on Everyday Items</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>IMDb</strong>
+                                                <ul>
+                                                        <li>Movies, TV & Celebrities</li>
+                                                </ul>
+                                        </li>
+                                        <li><strong>Amazon Prime Music</strong>
+                                                <ul>
+                                                        <li>100 million songs, ad-free</li>
+                                                        <li>Over 1.5 million podcast episodes</li>
+                                                </ul>
+                                        </li>
+                                </ul>
+                                <div className="w-full text-center px-4 text-sm">
+                                        <ul className="flex justify-center gap-4">
+                                                <li>Conditons of Use & Sale</li>
+                                                <li>Privacy Notice</li>
+                                                <li>Interset-Based Ads</li>
+                                        </ul>
+                                        <p>1996-2024, Amazon.com, Inc. or its affiliates</p>
+                                </div>
+                        </section>
+                </footer>
         </div>
-    );
+        );
 }
 export default Footer ;

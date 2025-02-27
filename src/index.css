@@ -34,3 +34,7 @@ body{
       border-radius: 10px;
     }
 
+.us ul li ul li,
+.details ul li ul li{
+  @apply mt-2 text-sm text-[#999999]
+}

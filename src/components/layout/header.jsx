@@ -36,7 +36,7 @@ const Header =() => {
       <Container>
         <Navbar.Brand href="/"><img src={amazonlogo} alt="logo" className=""/></Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="bg-white" />
-        <Navbar.Collapse id="basic-navbar-nav ">
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto text-amber-50 flex items-center w-full
           justify-evenly">
             <Nav.Link href="/">
