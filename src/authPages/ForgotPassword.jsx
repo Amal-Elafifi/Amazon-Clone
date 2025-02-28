@@ -3,10 +3,9 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as yup from 'yup'
 import { forgetPassword } from '../slices/user.slice'
-import { Link } from 'react-router-dom'
 import { CircleAlert } from 'lucide-react'
 export default function ForgotPassword() {
-    const isLoadingUser=useSelector(store=>store.userReduce.isLoadingUser)    
+    const isLoadingUser=useSelector(store=>store.userReducer.isLoadingUser)    
     const dispatch = useDispatch()
     let validationSchema = yup.object({
         email:yup.string().required('Email is required.').email('Invalid email format.'),

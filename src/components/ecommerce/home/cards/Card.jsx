@@ -10,7 +10,7 @@ function CardItem ({title, linkText, body }) {
             <Card.Body className='flex flex-wrap gap-2'>
                     {body}
             </Card.Body>
-              <Link className='text-[#78d4e2] ml-[7px] font-bold' to="/categories">{linkText}
+              <Link className='text-[#78d4e2] ml-[7px] font-bold' to="/products">{linkText}
             </Link>
         </Card>
     )

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserOrders } from '../slices/orders.slice'
 import moment from 'moment';
 import { Link, useNavigate } from 'react-router-dom';
+import LottieComponent from '../components/common/lottie/LottieComponent';
 
 export default function Orders() {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ export default function Orders() {
   },[])
   if(isLoadingOrders){
     return (
-        <div>Loading........................</div>
+        <LottieComponent type="loadingAnimation"/>
    
     )
   }

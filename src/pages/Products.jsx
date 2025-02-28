@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Card from "../components/Card";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import LottieComponent from "../components/common/lottie/LottieComponent";
 
 
 
@@ -11,16 +14,15 @@ function Products(){
     const [currentPage, setCurrentPage] = useState(1);
     const [products, setProducts] = useState(null)
 
-
+        const filter = useRef(null)
+    
     useEffect(() => {
         let isMount = true;
 
           const fetchData = async () => {
                 try {
                       const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?limit=20&page=${currentPage}`)
-                      setProducts(response.data)
-                      console.log(response.data);
-                      
+                      setProducts(response.data)                      
                 } catch (error) {
                       console.log(error)
                 }
@@ -33,11 +35,16 @@ function Products(){
           }    
     }, [currentPage])
     
+    function handleFilter () {
+        filter.current.classList.toggle('hidden')
+    }
     
     
     return (
-            <div className="category-page flex gap-3 p-6 ">
-                <aside>
+        <>
+        {products?<div className="category-page md:gap-3 flex flex-col md:flex-row p-6 ">
+                <FontAwesomeIcon onClick={handleFilter} icon={faBars} className="text-3xl cursor-pointer md:hidden mb-3"/>
+                <aside ref={filter} className="hidden md:block">
                     <section className="flex flex-col justify-start gap-6 
                     w-[150px] text-sm ">
                         <div className="delivery ">
@@ -118,7 +125,9 @@ function Products(){
                     </button>
                 </div>
                 </section>
-            </div>
+            </div>:<div><LottieComponent type="loadingAnimation"/></div>}
+            
+        </>
     )
 }
 
