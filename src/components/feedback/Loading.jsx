@@ -1,4 +1,4 @@
-import LottieComponent from "../common/lottie/lottieComponent";
+import LottieComponent from '../common/lottie/LottieComponent'
 import PropTypes from "prop-types";
 
 const Loading = () => {
