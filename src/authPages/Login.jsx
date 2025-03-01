@@ -3,9 +3,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as yup from "yup";
 import { logIn } from "../slices/user.slice";
-import { CircleAlert, Eye, EyeOff, Play } from "lucide-react";
+import { CircleAlert, Eye, EyeOff} from "lucide-react";
 import { Link } from "react-router-dom";
-import LottieComponent from "../components/common/lottie/LottieComponent";
 
 export default function Login() {
   const [isEyeVisible, setIsEyeVisible] = useState(false); // state for visibility
@@ -95,7 +94,6 @@ export default function Login() {
             fill="black"
           />
         </svg>
-
         <div className="max-w-[587px] max-h-[579px]  border rounded-xl py-[51px] px-[37px] space-y-4">
           <h2 className="text-3xl font-medium ">Sign in</h2>
           <form
@@ -149,10 +147,6 @@ export default function Login() {
                 {isEyeVisible ? <Eye /> : <EyeOff />}
               </span>
             </div>
-            {/*  */}
-            {/*  */}
-            {/*  */}
-            {isLoading && <LottieComponent type="loadingAnimation" />}
             <button
               disabled={isLoadingUser}
               type="submit"

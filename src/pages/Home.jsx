@@ -16,7 +16,7 @@ function Home() {
             </div>
             <ProductsCards/>
             <div className="bg-[#fff]">
-                <h1 className="text-[30px] font-bold pt-[30px] ps-[30px]">Min.50% off | Unique Kitchen Finds | Amazon Brands & more <Link to="/categories" className=" text-[20px] font-normal ms-[7px] text-[#55acbb] ">See all</Link></h1>
+                <h1 className="text-[30px] font-bold pt-[30px] ps-[30px]">Min.50% off | Unique Kitchen Finds | Amazon Brands & more <Link to="/products" className=" text-[20px] font-normal ms-[7px] text-[#55acbb] ">See all</Link></h1>
                 <ItemsCarousel/>
             </div>
         </div>

@@ -16,7 +16,6 @@ function ItemsCarousel () {
             img10={<img src="/public/assets/images/items/chopper.png" className="max-w-[90%]"/>}
             img11={<img src="/public/assets/images/items/processor.png" className="max-w-[90%]"/>}
             img12={<img src="/public/assets/images/items/org.png" className="max-w-[90%]"/>}
-
         />
     </>
     )

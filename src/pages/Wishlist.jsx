@@ -6,6 +6,7 @@ import {
   removeProductFromWishlist,
 } from "../slices/wishlist.slice";
 import { addProductToCart } from "../slices/cart.slice";
+import LottieComponent from "../components/common/lottie/LottieComponent";
 
 export default function Wishlist() {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function Wishlist() {
     window.scrollTo(0, 0);
   }, []);
   if (isLoadingWishList) {
-    return <h1>Loading....................</h1>
+    return <LottieComponent type="loadingAnimation"/>
   }
   return (
     <>
