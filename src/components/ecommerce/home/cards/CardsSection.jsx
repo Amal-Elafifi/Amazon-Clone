@@ -3,7 +3,7 @@ import CardBody from "./CardBody";
 function CardsSection () {
     const body1 = 
         <>
-            <CardBody src="../../../../public/assets/images/card1/11.jpg" text="Women perfumes and more"/>
+            <CardBody src="../public/assets/images/card1/11.jpg" text="Women perfumes and more"/>
             <CardBody src="/public/assets/images/card1/12.png" text="Women cosmotics and more"/>
             <CardBody src="/public/assets/images/card1/13.avif" text="Home decor and essentials"/>
             <CardBody src="/public/assets/images/card1/14.jpg" text="surprises and gifts"/>
