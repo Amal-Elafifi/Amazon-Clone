@@ -1,93 +1,63 @@
 import CardItem from "./Card";
 import CardBody from "./CardBody";
-import img11 from "/public/assets/images/card1/11.jpg";
-import img12 from "/public/assets/images/card1/12.png";
-import img13 from "/public/assets/images/card1/13.avif";
-import img14 from "/public/assets/images/card1/14.jpg";
-import img21 from "/public/assets/images/card2/21.jpg";
-import img22 from "/public/assets/images/card2/22.webp";
-import img23 from "/public/assets/images/card2/23.jpg";
-import img24 from "/public/assets/images/card2/24.webp";
-import img331 from "/public/assets/images/card3/331.jpg";
-import img332 from "/public/assets/images/card3/332.jpg";
-import img333 from "/public/assets/images/card3/333.jpg";
-import img334 from "/public/assets/images/card3/334.webp";
-import img41 from "/public/assets/images/card4/41.webp";
-import img42 from "/public/assets/images/card4/42.jpg";
-import img43 from "/public/assets/images/card4/43.jpeg";
-import img44 from "/public/assets/images/card4/44.jpg";
-import img51 from "/public/assets/images/card5/51.jpg";
-import img52 from "/public/assets/images/card5/52.jpeg";
-import img53 from "/public/assets/images/card5/53.jpg";
-import img54 from "/public/assets/images/card5/54.jpg";
-import img61 from "/public/assets/images/card6/61.jpg";
-import img62 from "/public/assets/images/card6/62.webp";
-import img63 from "/public/assets/images/card6/63.jpg";
-import img64 from "/public/assets/images/card6/64.jpg";
-import img71 from "/public/assets/images/card7/711.jpg";
-import img72 from "/public/assets/images/card7/72.jpg";
-import img73 from "/public/assets/images/card7/733.jpg";
-import img74 from "/public/assets/images/card7/744.jpg";
-import img81 from "/public/assets/images/card8/82.jpeg";
-import img82 from "/public/assets/images/card8/811.jpg";
-import img83 from "/public/assets/images/card8/822.jpeg";
-import img84 from "/public/assets/images/card8/844.webp";
+import * as img from "./index";
+
 function CardsSection () {
     const body1 = 
         <>
-            <CardBody src={img11} text="Women perfumes and more"/>
-            <CardBody src={img12} text="Women cosmotics and more"/>
-            <CardBody src={img13} text="Home decor and essentials"/>
-            <CardBody src={img14} text="surprises and gifts"/>
+            <CardBody src={img.img11} text="Women perfumes and more"/>
+            <CardBody src={img.img12} text="Women cosmotics and more"/>
+            <CardBody src={img.img13} text="Home decor and essentials"/>
+            <CardBody src={img.img14} text="surprises and gifts"/>
         </>;
     const body2 = 
             <>
-                <CardBody src={img21} text="refrigerators" />
-                <CardBody src={img22} text="Air conditioners"/>
-                <CardBody src={img23} text="Microwaves"/>
-                <CardBody src={img24} text="Washing machines"/>
+                <CardBody src={img.img21} text="refrigerators" />
+                <CardBody src={img.img22} text="Air conditioners"/>
+                <CardBody src={img.img23} text="Microwaves"/>
+                <CardBody src={img.img24} text="Washing machines"/>
             </>;
             const body3 = 
             <>
-                <CardBody src={img331} text="Starting 249$ | Boat" />
-                <CardBody src={img332} text="Starting 349$ | Bolut"/>
-                <CardBody src={img333} text="Starting 649$ | Noise"/>
-                <CardBody src={img334} text="Starting 149$ | Zebronic"/>
+                <CardBody src={img.img331} text="Starting 249$ | Boat" />
+                <CardBody src={img.img332} text="Starting 349$ | Bolut"/>
+                <CardBody src={img.img333} text="Starting 649$ | Noise"/>
+                <CardBody src={img.img334} text="Starting 149$ | Zebronic"/>
             </>;
             const body4 = 
             <>
-                <CardBody src={img41} text="Up to 70% off | shoes" />
-                <CardBody src={img42} text="Up to 60% off"/>
-                <CardBody src={img43} text="Starting 249$ | toys & games"/>
-                <CardBody src={img44} text="Starting 249$ | Home"/>
+                <CardBody src={img.img41} text="Up to 70% off | shoes" />
+                <CardBody src={img.img42} text="Up to 60% off"/>
+                <CardBody src={img.img43} text="Starting 249$ | toys & games"/>
+                <CardBody src={img.img44} text="Starting 249$ | Home"/>
             </>;
             const body5 = 
             <>
-                <CardBody src={img51} text="Modern decoration" />
-                <CardBody src={img52} text="Up to 60% off "/>
-                <CardBody src={img53} text="Starting 49$ | walldecor"/>
-                <CardBody src={img54} text="flash sale | wooden decors"/>
+                <CardBody src={img.img51} text="Modern decoration" />
+                <CardBody src={img.img52} text="Up to 60% off "/>
+                <CardBody src={img.img53} text="Starting 49$ | walldecor"/>
+                <CardBody src={img.img54} text="flash sale | wooden decors"/>
             </>; 
             const body6 = 
             <>
-                <CardBody src={img61} text="Modern sofa & comfortable" />
-                <CardBody src={img62} text="Up to 20% off modern salon"/>
-                <CardBody src={img63} text="Wide variety of couches"/>
-                <CardBody src={img64} text="Order now & get 30% off"/>
+                <CardBody src={img.img61} text="Modern sofa & comfortable" />
+                <CardBody src={img.img62} text="Up to 20% off modern salon"/>
+                <CardBody src={img.img63} text="Wide variety of couches"/>
+                <CardBody src={img.img64} text="Order now & get 30% off"/>
             </>;    
             const body7 = 
             <>
-                <CardBody src={img71} text="starting 199$ | Bedsheets" />
-                <CardBody src={img72} text="Up to 20% off | classic bedwears"/>
-                <CardBody src={img73} text="Wide variety of Blankets"/>
-                <CardBody src={img74} text="Order now | free delivery"/>
+                <CardBody src={img.img71} text="starting 199$ | Bedsheets" />
+                <CardBody src={img.img72} text="Up to 20% off | classic bedwears"/>
+                <CardBody src={img.img73} text="Wide variety of Blankets"/>
+                <CardBody src={img.img74} text="Order now | free delivery"/>
             </>; 
              const body8 = 
              <>
-                 <CardBody src={img81} text="starting 199$ |Leather products" />
-                 <CardBody src={img82} text="Up to 20% off | shoes and bag"/>
-                 <CardBody src={img83} text="All what you dream | only needs click"/>
-                 <CardBody src={img84} text="Free delivery for 3 days"/>
+                 <CardBody src={img.img81} text="starting 199$ |Leather products" />
+                 <CardBody src={img.img82} text="Up to 20% off | shoes and bag"/>
+                 <CardBody src={img.img83} text="All what you dream | only needs click"/>
+                 <CardBody src={img.img84} text="Free delivery for 3 days"/>
              </>; 
 
     return (
