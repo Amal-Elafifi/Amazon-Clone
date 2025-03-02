@@ -1,12 +1,17 @@
 import CardItem from "./Card";
 import CardBody from "./CardBody";
+import img11 from "/public/assets/images/card1/11.jpg";
+import img12 from "/public/assets/images/card1/12.png";
+import img13 from "/public/assets/images/card1/13.avif";
+import img14 from "/public/assets/images/card1/14.jpg";
+
 function CardsSection () {
     const body1 = 
         <>
-            <CardBody src="public/assets/images/card1/11.jpg" text="Women perfumes and more"/>
-            <CardBody src="/public/assets/images/card1/12.png" text="Women cosmotics and more"/>
-            <CardBody src="/public/assets/images/card1/13.avif" text="Home decor and essentials"/>
-            <CardBody src="/public/assets/images/card1/14.jpg" text="surprises and gifts"/>
+            <CardBody src={img11} text="Women perfumes and more"/>
+            <CardBody src={img12} text="Women cosmotics and more"/>
+            <CardBody src={img13} text="Home decor and essentials"/>
+            <CardBody src={img14} text="surprises and gifts"/>
         </>;
     const body2 = 
             <>
