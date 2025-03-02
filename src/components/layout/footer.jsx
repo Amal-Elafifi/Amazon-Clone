@@ -1,6 +1,6 @@
 import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
-import amazonlogo from "../../assets/images/Amazon.png";
-import indiaFlag from "../../assets/images/India.png";
+import amazonlogo from "/Amazon.png";
+import indiaFlag from "/India.png";
 import { Link } from "react-router-dom";
 import { Globe } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

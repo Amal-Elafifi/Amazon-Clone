@@ -22,19 +22,18 @@ function Product () {
     const dummyComments= [{img:"/image.png", userName:"Brooke",  stars:4,
             title:"Favorite dress", location:"the United States", date:"6 August 2024", 
             size:"40", color:"Black", Verified:true, desc:"I initially purchased this dress on sale. It turned out to be my favorite dress of this summer. It is extremely versatile and unexpectedly flattering. When I accidentally tore it, I was really upset. My husband told me to buy it again, which I typically wouldn't do. It wasn't on sale and I am so frugal. The dress washes very well and I always get compliments when I wear it." },
-        {img:"/src/assets/images/image (1).png", userName:"Elva S. D.",  stars:4, 
+        {img:"/image (1).png", userName:"Elva S. D.",  stars:4, 
             title:"Lindo!!", location:"Mexico", date:"11 August 2023", 
              Verified:true, desc:"Bien hecho, bonita tela y bonita caída, fresco y casual.La marca lo dice!!"},
-        {img:"/src/assets/images/image.png", userName:"Jenny",  stars:2, 
+        {img:"/image.png", userName:"Jenny",  stars:2, 
             title:"La mejor ropa para este fin de semana", location:"Colombia", date:"15 August 2022", 
              Verified:false, desc:"Esta ropa es muy buena y muy recomendada para este fin de semana. La marca lo dice!!"},
-        {img:"/src/assets/images/image.png", userName:"Jenny",  stars:4, 
+        {img:"/image.png", userName:"Jenny",  stars:4, 
             title:"La mejor ropa para este fin de semana", location:"Colombia", date:"15 August 2022", 
             size:"33", color:"Black" , Verified:true, desc:"Esta ropa es muy buena y muy recomendada para este fin de semana. La marca lo dice!!"}];
 
     const getProduct =async() =>{
         const productdata = (await axios.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)).data.data;
-        // const productdata = (await axios.get("https://ecommerce.routemisr.com/api/v1/products/6428de2adc1175abc65ca05b")).data.data;
         setProductInfo(productdata);
     }
     useEffect(() => {
@@ -53,7 +52,6 @@ function Product () {
                     ))}
                 </div>
                 {/* main product image */}
-                <>ABC</>
                 <img src={productInfo.images[choosenImg]} alt="product main image" className="sm:h-[500px]  m-5 rounded-lg sm:col-span-5 col-span-4 h-[300px]" />
                 {/* product details */}
                 <div className="col-span-4 xl:col-span-4 mr-1/2 flex flex-col justify-around h-3/4 mb-5 w-[90%] md:w-full md:col-span-6 ">
@@ -68,7 +66,7 @@ function Product () {
                     <span>off with meem credit cards.</span>
                     <p>Enter code MEEM20 at checkout. Discount by Amazon.</p>
                     </div>
-                    <img src="/src/assets/images/PayAdv.png" alt="payment advantages" className="m-2 sm:w-1/2 w-3/4 xl:w-[300px]"/>
+                    <img src="/PayAdv.png" alt="payment advantages" className="m-2 sm:w-1/2 w-3/4 xl:w-[300px]"/>
                     {/* product description */}
                     <p className="font-bold">About this item</p>
                     <p className="ml-2">{productInfo.description}</p>
