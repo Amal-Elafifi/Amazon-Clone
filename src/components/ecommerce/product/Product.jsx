@@ -53,6 +53,7 @@ function Product () {
                     ))}
                 </div>
                 {/* main product image */}
+                <>ABC</>
                 <img src={productInfo.images[choosenImg]} alt="product main image" className="sm:h-[500px]  m-5 rounded-lg sm:col-span-5 col-span-4 h-[300px]" />
                 {/* product details */}
                 <div className="col-span-4 xl:col-span-4 mr-1/2 flex flex-col justify-around h-3/4 mb-5 w-[90%] md:w-full md:col-span-6 ">
