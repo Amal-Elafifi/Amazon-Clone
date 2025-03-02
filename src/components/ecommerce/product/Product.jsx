@@ -7,6 +7,7 @@ import {addProductToWishlist} from "../../../slices/wishlist.slice";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addProductToCart, BuyNow, updateProductCount } from "../../../slices/cart.slice";
+
 function Product () {
     const { id } = useParams();
     const isLoadingWishList = useSelector(store=>store.wishlistReducer.isLoadingWishList)
@@ -18,7 +19,7 @@ function Product () {
     const [choosenImg, setChoosenImg] = useState(0);
     const [showToast, setShowToast] = useState(false);
     const dummyStars= [0,6,0,71,0];
-    const dummyComments= [{img:"/src/assets/images/image.png", userName:"Brooke",  stars:4,
+    const dummyComments= [{img:"/images/image.png", userName:"Brooke",  stars:4,
             title:"Favorite dress", location:"the United States", date:"6 August 2024", 
             size:"40", color:"Black", Verified:true, desc:"I initially purchased this dress on sale. It turned out to be my favorite dress of this summer. It is extremely versatile and unexpectedly flattering. When I accidentally tore it, I was really upset. My husband told me to buy it again, which I typically wouldn't do. It wasn't on sale and I am so frugal. The dress washes very well and I always get compliments when I wear it." },
         {img:"/src/assets/images/image (1).png", userName:"Elva S. D.",  stars:4, 
