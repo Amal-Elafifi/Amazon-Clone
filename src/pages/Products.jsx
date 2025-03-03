@@ -8,7 +8,6 @@ import LottieComponent from "../components/common/lottie/LottieComponent";
 function Products(){
     const [currentPage, setCurrentPage] = useState(1);
     const [products, setProducts] = useState(null);
-    const [selectedPrice, setSelectedPrice] = useState("0,150000");
   
     const filter = useRef(null)
     
@@ -17,7 +16,7 @@ function Products(){
           const fetchData = async () => {
             try {
                 const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?limit=20&page=${currentPage}`);
-                setProducts(response.data.data)
+                setProducts(response.data)
             }
             catch (error) {
                 console.log(error)
@@ -37,7 +36,7 @@ function Products(){
         const rang= event.target.value.split(",").map(number => number);
         try {
             const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?limit=20&page=${currentPage}&price[gte]=${rang[0]}&price[lte]=${rang[1]}`)
-            setProducts(response.data.data)                      
+            setProducts(response.data)                      
         } catch (error) {
                 console.log(error)
         }
@@ -80,7 +79,7 @@ function Products(){
                 <section className="grid grid-cols-1 gap-5 overflow-auto
                 sm:grid-cols-2 lg:grid-cols-4">
                     {
-                        products?.map((product, i) => (
+                        products?.data.map((product, i) => (
                             <Card
                             key= {i}
                             description={product.description} 
