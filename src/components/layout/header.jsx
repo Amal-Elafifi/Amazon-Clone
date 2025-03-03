@@ -86,7 +86,7 @@ const Header =() => {
                 value={searchText}
                 onChange={(e)=> setSearchText(e.target.value)}
               />
-              <Link to={`/products/search/${searchText}`} className=" h-full">
+              <Link to={`/search/${searchText}`} className=" h-full">
                 <button   className="bg-[#FFCC00] text-[#212121] h-full px-2
                 rounded-r-md">
                   <Search className="" />
