@@ -12,7 +12,8 @@ import LottieComponent from "../components/common/lottie/LottieComponent";
 
 function Products(){
     const [currentPage, setCurrentPage] = useState(1);
-    const [products, setProducts] = useState(null)
+    const [products, setProducts] = useState(null);
+    const [selectedPrice, setSelectedPrice] = useState("0,150000");
 
         const filter = useRef(null)
     
@@ -38,6 +39,16 @@ function Products(){
     function handleFilter () {
         filter.current.classList.toggle('hidden')
     }
+    const handlePriceChange = async(event) => {
+        const rang= event.target.value.split(",").map(number => number);
+        try {
+            const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?limit=20&page=${currentPage}&price[gte]=${rang[0]}&price[lte]=${rang[1]}`)
+            setProducts(response.data)                      
+        } catch (error) {
+                console.log(error)
+        }
+        setSelectedPrice(event.target.value);
+    };
     
     
     return (
@@ -47,31 +58,28 @@ function Products(){
                 <aside ref={filter} className="hidden md:block">
                     <section className="flex flex-col justify-start gap-6 
                     w-[150px] text-sm ">
-                        <div className="delivery ">
-                            <h3 >Delivery Day</h3>
-                            <label><input type="radio" name="" value='' /> Get It in 2 Days</label>
-                        </div>
                         <div>
-                            <h3>Customer Reviews</h3>
-                            <img className="w-fit" src="/src/assets/images/Star.png" alt="" />
-                        </div>
-                        <div >
-                            <h3>Brands</h3>
-                            <label><input type="radio" name="brand" value='' /> Samsung</label>
-                            <label><input type="radio" name="brand" value='' /> LG</label>
-                            <label><input type="radio" name="brand" value='' /> Haier</label>
-                            <label><input type="radio" name="brand" value='' /> Daikin</label>
-                            <label><input type="radio" name="brand" value='' /> Godrej</label>
-                            <label><input type="radio" name="brand" value='' /> IFB</label>
-                            <label><input type="radio" name="brand" value='' /> Panasonic</label>
-                        </div>
-                        <div className="">
                             <h3>Price</h3>
-                            <label><input type="radio" name="price" value='' /> All</label>
-                            <label><input type="radio" name="price" value='' /> ₹5900 to ₹10,000</label>
-                            <label><input type="radio" name="price" value='' /> ₹10,000 to ₹20,000</label>
-                            <label><input type="radio" name="price" value='' /> ₹20,000 to ₹30,000</label>
-                            <label><input type="radio" name="price" value='' /> ₹30,000 to ₹45,000</label>
+                            <label>
+                                <input type="radio" name="price" value={"0,150000"} onChange={handlePriceChange} checked={selectedPrice == "0,150000"}/>
+                                All 
+                            </label>
+                            <label>
+                                <input type="radio" name="price" value={"0,1000"} onChange={handlePriceChange} />
+                                ₹0 to ₹1000
+                            </label>
+                            <label>
+                                <input type="radio" name="price" value={"1000,4000"} onChange={handlePriceChange} />
+                                ₹1000 to ₹4000
+                            </label>
+                            <label>
+                                <input type="radio" name="price" value={"4000,10000"} onChange={handlePriceChange} />
+                                ₹4000 to ₹10,000
+                            </label>
+                            <label>
+                                <input type="radio" name="price" value={"10000,15000"} onChange={handlePriceChange} />
+                                ₹10,000 to ₹15,000
+                            </label>
                         </div>
                     </section>
                 </aside>
