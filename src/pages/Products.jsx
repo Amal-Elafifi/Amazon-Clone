@@ -59,7 +59,7 @@ function Products(){
     }
     const handlePriceChange = async(event) => {
         const rang= event.target.value.split(",").map(number => number);
-        navigate(`../products/rang/${rang[0]}-${rang[1]}`);
+        if (location.pathname.includes("/search/")) navigate(`../`);
         try {
             const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?limit=20&page=${currentPage}&price[gte]=${rang[0]}&price[lte]=${rang[1]}`)
             setProducts(response.data.data)                      
