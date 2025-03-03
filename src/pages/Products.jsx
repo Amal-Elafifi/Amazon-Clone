@@ -55,7 +55,7 @@ function Products(){
                         <div>
                             <h3>Price</h3>
                             <label>
-                                <input type="radio" name="price" value={"0,150000"} onChange={handlePriceChange} checked={selectedPrice == "0,150000"}/>
+                                <input type="radio" name="price" value={"0,150000"} onChange={handlePriceChange} />
                                 All 
                             </label>
                             <label>
