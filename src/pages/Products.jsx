@@ -4,33 +4,51 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import LottieComponent from "../components/common/lottie/LottieComponent";
-
-
-
-
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 
 
 function Products(){
+    const navigate = useNavigate()
+    const { searchText } = useParams();
+    const location = useLocation();
     const [currentPage, setCurrentPage] = useState(1);
     const [products, setProducts] = useState(null);
     const [selectedPrice, setSelectedPrice] = useState("0,150000");
+    // const [loading, setLoading] = useState(true);
+    let loading = true;
 
-        const filter = useRef(null)
+    const filter = useRef(null)
     
     useEffect(() => {
         let isMount = true;
-
           const fetchData = async () => {
                 try {
                       const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?limit=20&page=${currentPage}`)
-                      setProducts(response.data)                      
+                      
+                    //handling search case
+                    if (location.pathname.includes("/search/")) {
+                        let data = response.data.data.filter((i) => {
+                            const brandName = i?.brand?.name?.toLowerCase() || "";
+                            const description = i?.description?.toLowerCase() || "";
+                            const search = searchText.toLowerCase();
+                    
+                            return brandName.includes(search) || description.includes(search);
+                        });
+                        if (data.length === 0) data = null;
+                        setProducts(data);
+                        return;
+                    }
+                      setProducts(response.data.data)                      
                 } catch (error) {
                       console.log(error)
                 }
 
           }
-    
           fetchData() 
+
+        //   setLoading(false);
+        loading =false;
+
           return () => {
             isMount = false;
           }    
@@ -41,14 +59,24 @@ function Products(){
     }
     const handlePriceChange = async(event) => {
         const rang= event.target.value.split(",").map(number => number);
+        navigate(`../products/rang/${rang[0]}-${rang[1]}`);
         try {
             const response = await axios.get(`https://ecommerce.routemisr.com/api/v1/products?limit=20&page=${currentPage}&price[gte]=${rang[0]}&price[lte]=${rang[1]}`)
-            setProducts(response.data)                      
+            setProducts(response.data.data)                      
         } catch (error) {
                 console.log(error)
         }
         setSelectedPrice(event.target.value);
     };
+
+    if (location.pathname.includes("/search/") && loading === false && !products) {
+        return(
+            <div className="text-center text-gray-500 p-4">
+                <p className="text-lg font-semibold">No results found for "{searchText}"</p>
+                <p>Try searching for something else.</p>
+            </div>
+        )
+    }
     
     
     return (
@@ -86,7 +114,7 @@ function Products(){
                 <section className="grid grid-cols-1 gap-5 overflow-auto
                 sm:grid-cols-2 lg:grid-cols-4">
                     {
-                        products?.data.map((product, i) => (
+                        products?.map((product, i) => (
                             <Card
                             key= {i}
                             description={product.description} 

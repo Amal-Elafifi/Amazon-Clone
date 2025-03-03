@@ -29,6 +29,8 @@ const AppRouter = () => {
             <Route path="/" element={<ProtectedRoute><LayoutUser/></ProtectedRoute>} >
             <Route index element={<Home />}  />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/rang/:rang" element={<Products />} />
+            <Route path="/products/search/:searchText" element={<Products />} />
             <Route path="/product/:id" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/wishlist" element={<Wishlist />} />
