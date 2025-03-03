@@ -6,15 +6,14 @@ import Toast from "../../Toast";
 import {addProductToWishlist} from "../../../slices/wishlist.slice";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addProductToCart, BuyNow, updateProductCount } from "../../../slices/cart.slice";
+import { addProductToCart, BuyNow} from "../../../slices/cart.slice";
 
 function Product () {
     const { id } = useParams();
     const isLoadingWishList = useSelector(store=>store.wishlistReducer.isLoadingWishList)
     const isLoadingUpdateCart =useSelector(store=>store.cartReducer.isLoadingUpdateCart)
-    const cartInfo = useSelector(store=>store.cartReducer.cartInfo)    
-    const quantityItem =useSelector(store=>store.cartReducer.quantityItem)
     const dispatch = useDispatch();
+    const [quantity, setQuantity] = useState(1);
     const [productInfo, setProductInfo] = useState(null);
     const [choosenImg, setChoosenImg] = useState(0);
     const [showToast, setShowToast] = useState(false);
@@ -83,14 +82,14 @@ function Product () {
                     <p className="text-[#B12704]">Usually ships within 4 to 5 days</p>
                     <p className="text-xl text-center flex gap-2">
                         <button onClick={()=>{
-                            // dispatch(updateProductCount({productId:id,count:quantity}))
+                                if(quantity > 1) setQuantity(quantity - 1);
                             }} className="bg-[#1F8394] rounded-full w-8 text-white  hover:brightness-125">-</button>
-                        Quantity: {quantityItem} 
+                        Quantity: {quantity} 
                         <button onClick={()=>{
-                            // dispatch(updateProductCount({productId:id,count:quantity}))
+                            setQuantity(quantity + 1);
                             }} className="bg-[#1F8394] rounded-full w-8 text-white  hover:brightness-125">+</button>
                     </p>
-                    <button className="rounded-full bg-[#FFD814] w-full h-[26.900775909423828px] my-2 hover:brightness-125" disabled={isLoadingUpdateCart} onClick={()=>{dispatch(addProductToCart(id))}}>Add to Cart</button>
+                    <button className="rounded-full bg-[#FFD814] w-full h-[26.900775909423828px] my-2 hover:brightness-125" disabled={isLoadingUpdateCart} onClick={()=>{dispatch(addProductToCart({ productId: id, count: quantity }))}}>Add to Cart</button>
                     <button className="rounded-full bg-[#FFA41C] w-full h-[31.79073715209961px] my-1 hover:brightness-150"  disabled={isLoadingUpdateCart} onClick={()=>{
                         dispatch(BuyNow(id))
                         }}>Buy Now</button>
@@ -149,7 +148,6 @@ function Product () {
                 </div>
             </div>
             {showToast && <Toast message="Comment has been reported" onClose={() => setShowToast(false)} />}
-                {/* وربط الكارت و ال fav */}
         </div>
     )
 }
